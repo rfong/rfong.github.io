@@ -1,0 +1,52 @@
+<html ng-app="App"
+      ng-controller="Ctrl">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- embed/search meta -->
+  <meta name="description" content="Pun Assistinator" />
+  <meta name="keywords" content="puns" />
+  <meta property="og:title" content="Pun Assistinator" />
+  <meta property="og:image:url" content="http://rfong.github.io/assets/screenshot.png" />
+  <meta property="og:description" content="Terrible, terrible pun assistance utility." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pun Assistinator" />
+  <meta name="twitter:description" content="Terrible, terrible pun assistance utility." />
+  <meta name="twitter:image" content="screenshot.png" />
+
+  <!-- Vendor styles -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="lib/bootstrap-grid.css" />
+
+  <!-- Page styles -->
+  <link rel="stylesheet" href="assets/index.css" />
+
+  <!-- Vendor scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+
+  <!-- Page scripts --> 
+  <script type="text/javascript" src="assets/index.js"></script>
+
+</head>
+<body fa-suspendable>
+
+  <div ng-repeat="group in groups">
+  <h1>{{ group.title }}</h1>
+  <div class="row">
+    <div ng-repeat="item in group.items"
+         class="item col-xs-12 col-sm-4">
+      <item-title url="item.url" title="item.title"></item-title>
+      <div ng-if="item.subtitle" class="subtitle">{{ item.subtitle }}</div>
+      <div ng-if="item.image">
+        <a ng-if="item.url" href="{{ item.url }}"><img src="{{ item.image }}" /></a>
+        <span ng-if="!item.url"><img src="{{ item.image }}"</span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
+</html>
