@@ -1,0 +1,182 @@
+@import fonts
+@import mixins
+@import global
+
+
+body
+  //background: url('textures/gplaypattern.png') repeat
+  //+font-helvetica
+  font-family: Helvetica, Arial, sans-serif
+  font-size: 15px
+  text-rendering: optimizeLegibility
+
+/* begin nav */
+
+#nav
+  position: relative
+  width: 100%
+  overflow: auto
+  text-align: center
+  +unselectable
+  border-bottom: 1px solid #ddd
+
+  .nav-item
+    margin: 0 25px
+    +nav-font
+    +no-underline
+    &:hover
+      color: $red-lite
+  .nav-item.nav-icon
+    margin: 0
+    margin-right: 15px
+    font-size: 1em
+    &:last-child
+      margin-right: 50px
+
+  .nav-center
+    display: inline-block
+    padding: 15px 0 10px 0
+    border-bottom: 4px solid transparent
+    &.selected
+      border-bottom: 4px solid $red
+
+  .nav-right
+    position: absolute
+    top: 0
+    right: 0
+    padding-top: 11px
+
+/* end nav */
+/* begin sidebar */
+
+#sidebar
+  padding-top: 30px
+  text-align: right
+  +nav-font
+  +unselectable
+
+  .header
+    display: block
+    margin: 1em 0 0.5em 0
+    padding: 10px 8px 0 0
+    border-right: 4px solid transparent
+    color: #777
+
+  a
+    display: block
+    margin: 0.5em 0
+    +no-underline
+
+    //color: $green
+    //&:hover
+    //  color: $green-lite
+
+    padding: 1px 8px 0 0
+    border-right: 4px solid transparent
+    &.selected
+      border-right: 4px solid $red
+
+/* end sidebar */
+/* begin main */
+
+#main
+  position: relative
+  font-family: Georgia, Trebuchet, serif
+  font-size: 13pt
+  padding: 35px 25px
+
+  .item
+    img
+      max-width: 100%
+
+/* end main */
+
+//#sidebar
+//
+//  a
+//    color: #000
+//    &:hover
+//      color: $red-lite
+//      //border-bottom: 1px dashed #666
+//    &.external
+//      background: url('/images/external.png') right no-repeat
+//      padding-right: 14px
+//
+//  #logo img
+//    max-height: 60px
+//    margin-bottom: -15px
+//
+//  .section
+//    margin-top: 1em
+//
+//  //.divider
+//  //  margin-top: -0.4em
+//  //  margin-bottom: -0.3em
+
+p a
+  font-weight: bold
+
+.tiled
+  .tile
+    float: left
+    width: 220px
+    margin: 10px
+    padding: 12px
+    border-radius: 5px
+    border: 1px solid #ccc
+    &.col1
+      width: 220px
+    &.col2
+      width: 460px
+    &.col3
+      width: 700px
+    &:hover
+      border: 1px solid #666
+
+    img
+      max-width: 100%
+
+.photoset
+  margin: 0 0 10px
+
+.photo img
+  width: 150px
+  height: 150px
+  margin: 5px
+  +transition('width 0.1s, height 0.1s, margin 0.1s')
+  &:hover
+    width: 160px
+    height: 160px
+    margin: 0px
+
+.footnote
+  font-size: 12px
+  color: #666
+
+.bx-wrapper .bx-viewport
+  box-shadow: none
+  -webkit-box-shadow: none
+  -moz-box-shadow: none
+
+.bx-viewport li
+  &:before
+    content: ''
+    display: inline-block
+    height: 100%
+    vertical-align: middle
+    //margin-right: -0.25em
+  img
+    display: inline-block
+    vertical-align: middle
+    //width: 300px
+  .image-wrapper
+    padding: 10px 10px
+    border: 1px solid transparent
+    &:hover
+      border: 1px solid #666
+
+.bx-wrapper
+  .bx-next
+    right: -50px
+  .bx-prev
+    left: -50px

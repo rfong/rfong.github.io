@@ -1,0 +1,72 @@
+@import mixins
+
+/*** site-wide styling ***/
+
+$fade-color: #444
+
+$red: #e62e00
+$red-lite: #ff714d
+$green: #57bf43
+$green-lite: #9bd98f
+
+=nav-font
+  font-family: Helvetica, Arial, sans-serif
+  font-size: 9pt
+  letter-spacing: 1.3pt
+  text-transform: uppercase
+  color: $red
+
+body,html
+  position: relative
+  height: 100%
+  top: 0
+  margin: 0 auto
+  padding: 0 auto
+
+a
+  text-decoration: none
+  &:link, &:visited
+    color: $green
+  &:hover
+    color: $red
+    text-decoration: none
+
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  font-family: Georgia, Trebuchet, serif
+  letter-spacing: 1.1pt
+
+h1
+  width: 100%
+  border-bottom: 1px solid #000
+  font-size: 20px
+  text-transform: uppercase
+  margin-top: 1em
+  margin-bottom: 0.5em
+
+h2
+  margin-bottom: 10px
+  &:not(:first-child)
+    margin-top: 1.5em
+
+/*** classes ***/
+
+.hidden
+  display: none !important
+
+.strikethrough
+  text-decoration: line-through
+
+.grey
+  color: #aaa
+.scshape
+  text-transform: uppercase
+
+.right
+  float: right
+.left
+  float: left
+
+.clear
+  clear: both
