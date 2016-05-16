@@ -148,19 +148,16 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       items: [
         {
           title: 'The Euphoria of Golf',
-          subtitle: '2015 edition',
           url: 'http://www.zazzle.com/the_euphoria_of_golf-158502025422375595',
           image: 'images/calendar3.jpg',
         },
         {
           title: 'The Spirit of Football',
-          subtitle: '2014 edition',
           url: 'http://www.zazzle.com/the_spirit_of_football_calendar-158847982790357840',
           image: 'images/calendar2.jpg',
         },
         {
           title: 'The Art of Tennis',
-          subtitle: '2013 edition',
           url: 'http://www.zazzle.com/the_art_of_tennis_calendar-158761540728115422',
           image: 'images/calendar1.jpg',
         },
