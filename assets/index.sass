@@ -6,37 +6,17 @@ $color1-fade: #9db848
 $color2: #ca5234
 $color2-fade: #ec957f
 
-/* generics */
-
-a
-  +transition(0.2s)
-
-/* sitewide */
-
-body
-  margin: 0
-  padding: 0
-  //text-align: center
-  //font-family: 'Helvetica Neue', Helvetica, sans-serif
-  font-family: Georgia, Trebuchet, serif
-  text-rendering: optimizeLegibility
-  font-size: 18px
-  font-weight: 300
-
 h1
   margin-bottom: 1.5em
   text-align: left
 
 h1, .title
   font-family: Georgia, Trebuchet, serif
-  //letter-spacing: 0.05em
-  //font-weight: 700
   a
     color: #666
     &:hover
       color: $green
 
-/* end sitewide */
 /* sidebar */
 
 #sidebar
@@ -50,20 +30,19 @@ h1, .title
     display: block
     margin: 1em 0 0.5em 0
     padding-top: 10px
-    border-right: 4px solid transparent
     color: #777
-
-  .link
-    margin-left: 3em
 
   a
     display: block
     margin: 0.5em 0
-    //+no-underline
+    text-decoration: none
     padding-top: 1px
-    border-right: 4px solid transparent
     &.selected
       border-right: 4px solid $red
+
+  .header, a
+    padding-right: 0.5em
+    border-right: 4px solid transparent
 
 /* end sidebar */
 /* layout */
@@ -93,10 +72,24 @@ h1, .title
     max-height: 50vh
     +border-radius(0.25em)
 
+.photoset
+  position: relative
+  white-space: nowrap
+  max-height: 500px
+  width: 100%
+  overflow: scroll
+
+  img
+    height: 100%
+    margin-right: 5px
+    &:last-child
+      margin-right: 0
+
 .video
   img
     width: 500px
     +border-radius(0)
 
-.fill-height
-  height: 100%
+.splash
+  .splash-image
+    height: 100%

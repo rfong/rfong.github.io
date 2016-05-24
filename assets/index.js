@@ -33,30 +33,45 @@ app.controller('myCtrl', function($scope, $http, $sce) {
   };
 
   $scope.show = function(page_id) {
+    if (page_id === '') { page_id = 'index'; }
     $('.page').addClass('hidden');
     $('.page[data-page-id=' + page_id + ']').removeClass('hidden');
+    $('#sidebar a.link').removeClass('selected');
+    $('#sidebar a.link[data-page-id=' + page_id + ']').addClass('selected');
   };
 
   $scope.photosets = {
     'firespinning': [
-      'https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/t31.0-8/11256845_10208103149390834_5763939808569898062_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12888495_10207982038963149_6987051376159162705_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12419317_10207982043123253_7137092745838687659_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xap1/v/t1.0-0/p206x206/12039672_10207982037883122_2038758129675854575_n.jpg?oh=4822c21874599130acd121bd99a5fef3&oe=57E47B34',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12748093_10207721166361497_7243468677544783006_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12719316_10207721167281520_6859901092868804708_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpf1/t31.0-8/12747900_10207721176681755_8934357202886866580_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpl1/t31.0-8/12694719_10207662207607565_2868375619169309728_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/10469540_10207662207807570_1341987910894188705_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12715963_10207662209807620_6259253558171178917_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12671610_10207662210527638_1095030931085902460_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12711131_10207629173181725_1473064351363370914_o.jpg',
-      'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12401737_10207386543956146_6685424035025698402_o.jpg',
+      'images/fire/may5.jpg',
+      'images/fire/may4.jpg',
+      'images/fire/may3.jpg',
+      'images/fire/may2.jpg',
+      'images/fire/may1.jpg',
+      'images/fire/apr2.jpg',
+      'images/fire/apr1.jpg',
+      'images/fire/mar2.jpg',
+      'images/fire/mar1.jpg',
+      'images/fire/feb7.jpg',
+      'images/fire/feb6.jpg',
+      'images/fire/feb5.jpg',
+      'images/fire/feb4.jpg',
+      'images/fire/feb3.jpg',
+      'images/fire/feb2.jpg',
+      'images/fire/feb1.jpg',
+      'images/fire/steven.jpg',
     ],
     'branding': [
       'http://41.media.tumblr.com/0d271bb48e13b991da9afe00fbea5274/tumblr_nzbgzjA1yh1r24k2yo2_r1_1280.jpg',
       'images/stupidhackathon2016.png',
       'http://65.media.tumblr.com/05e58ff76d2ab9e99f750b6ef88c6be8/tumblr_nt413j7DSu1r24k2yo1_1280.jpg',
+    ],
+    'reese': [
+      'images/reese/meow_bao.jpg',
+      'images/reese/pose.jpg',
+      'images/reese/complementary.jpg',
+      'images/reese/extra_regal.jpg',
+      'images/reese/yawn.jpg',
+      'images/reese/lick.jpg',
     ],
   };
 
@@ -178,7 +193,7 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       items: [
         {
           title: "'Physical Dropbox' 3D Scanner",
-          subtitle: "A 3D scanner in four days from $50 of off the shelf parts @ Dropbox Hack Week, with David Dohan, Abhishek Agrawal, Mason Liang. The general idea was a stepper motor controlled platform with vertical planes of light aimed at its center, which illuminated the object's deformation away from its axis of rotation. I worked on extrapolating point meshes from a series of webcam images of the rotated object, which required a lot of noise reduction.<p>Useful to know: you get a plane of light by shining a light beam through a glass rod.</p>",
+          subtitle: "A 3D scanner in four days from $50 of off the shelf parts @ Dropbox Hack Week, with David Dohan, Abhishek Agrawal, Mason Liang. The general idea was a stepper motor controlled platform with vertical planes of light aimed at its center, which illuminated the object's deformation away from its axis of rotation. I worked on extrapolating point meshes from a series of webcam images of the rotated object, which required a lot of noise reduction.<p>Useful to know: you get a plane of light by shining a light beam through a glass rod :)</p>",
           url: 'https://github.com/dmrd/physical-dropbox',
           image: 'images/physical_dropbox.jpg',
         },
@@ -211,7 +226,7 @@ app.controller('myCtrl', function($scope, $http, $sce) {
         },
         {
           title: 'Mecanum drive',
-          subtitle: '(Summer 2006)<p>Designed and made a holonomic drive system for fun. I milled 6" mecanum wheels from aluminum plate, using cheap rubber lab stops as the rollers. For the FRC 2007 season, we decided to make a second iteration with 8" waterjetted wheels.</p>Would not recommend setting the center of gravity this high.',
+          subtitle: '(2006)<p>Designed and made a holonomic drive system for fun. I milled 6" mecanum wheels from aluminum plate, using cheap rubber lab stops as the rollers. For the FRC 2007 season, we decided to make a second iteration with 8" waterjetted wheels.</p>Would not recommend setting the center of gravity this high.',
         },
         {
           title: 'Robotics',
@@ -232,12 +247,12 @@ app.directive('itemTitle', function() {
     restrict: 'E',
     scope: {
       url: '=',
-      title: '=',
+      text: '=',
     },
     template: ('' +
-      '<div ng-if="title" class="title">' +
-      '  <a ng-if="url" href="{{ url }}">{{ title }}</a>' +
-      '  <span ng-if="!url">{{ title }}</span>' +
+      '<div ng-if="text" class="title">' +
+      '  <a ng-if="url" href="{{ url }}">{{ text }}</a>' +
+      '  <span ng-if="!url">{{ text }}</span>' +
       '</div>'
     ),
   };
@@ -252,11 +267,12 @@ app.directive('internalLink', function() {
       text: '@',    // required attribute
     },
     template: (
-      '<a class="link internal" href="#{{pageId}}" ' +
+      '<a class="link internal" href="{{href}}" ' +
       '   ng-click="onHandleClick()" data-page-id="{{pageId}}" ' +
-      '   >{{text}}</a>'
+      '   ng-bind-html="text | unsafe"></a>'
     ),
     link: function(scope, element, attributes) {
+      scope.href = (scope.pageId === 'index' ? '/' : '#' + scope.pageId);
       scope.onHandleClick = function() {
         scope.$parent.show(scope.pageId);
       };

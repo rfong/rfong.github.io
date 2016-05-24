@@ -4,10 +4,19 @@ body, html {
   height: 100%;
   top: 0;
   margin: 0 auto;
-  padding: 0 auto; }
+  padding: 0 auto;
+  text-rendering: optimizeLegibility;
+  font-family: Georgia, Trebuchet, serif;
+  font-size: 18px;
+  font-weight: 300; }
 
 a {
   text-decoration: none;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
   color: #57bf43; }
   a:link, a:visited {
     color: #57bf43; }
@@ -55,23 +64,6 @@ h2 {
 .clear {
   clear: both; }
 
-/* generics */
-a {
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s; }
-
-/* sitewide */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Georgia, Trebuchet, serif;
-  text-rendering: optimizeLegibility;
-  font-size: 18px;
-  font-weight: 300; }
-
 h1 {
   margin-bottom: 1.5em;
   text-align: left; }
@@ -83,7 +75,6 @@ h1, .title {
     h1 a:hover, .title a:hover {
       color: #57bf43; }
 
-/* end sitewide */
 /* sidebar */
 #sidebar {
   padding-top: 30px;
@@ -98,17 +89,17 @@ h1, .title {
     display: block;
     margin: 1em 0 0.5em 0;
     padding-top: 10px;
-    border-right: 4px solid transparent;
     color: #777; }
-  #sidebar .link {
-    margin-left: 3em; }
   #sidebar a {
     display: block;
     margin: 0.5em 0;
-    padding-top: 1px;
-    border-right: 4px solid transparent; }
+    text-decoration: none;
+    padding-top: 1px; }
     #sidebar a.selected {
       border-right: 4px solid #e62e00; }
+  #sidebar .header, #sidebar a {
+    padding-right: 0.5em;
+    border-right: 4px solid transparent; }
 
 /* end sidebar */
 /* layout */
@@ -140,6 +131,18 @@ h1, .title {
     -o-border-radius: 0.25em;
     border-radius: 0.25em; }
 
+.photoset {
+  position: relative;
+  white-space: nowrap;
+  max-height: 500px;
+  width: 100%;
+  overflow: scroll; }
+  .photoset img {
+    height: 100%;
+    margin-right: 5px; }
+    .photoset img:last-child {
+      margin-right: 0; }
+
 .video img {
   width: 500px;
   -webkit-border-radius: 0;
@@ -148,7 +151,7 @@ h1, .title {
   -o-border-radius: 0;
   border-radius: 0; }
 
-.fill-height {
+.splash .splash-image {
   height: 100%; }
 
 /*# sourceMappingURL=index.css.map */

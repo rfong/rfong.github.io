@@ -15,6 +15,9 @@
   <meta name="twitter:description" content="Terrible, terrible pun assistance utility." />
   <meta name="twitter:image" content="screenshot.png" />
 
+  <!-- Tasty fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Domine:400,700' rel='stylesheet' type='text/css'>
+
   <!-- Vendor styles -->
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="lib/bootstrap-grid.css" />
@@ -41,6 +44,19 @@
 
 <div id="sidebar" class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
 
+    <div class="header">Photo+</div>
+    <div internal-link page-id="calendars" text="homononerotic sports calendars"></div>
+    <div internal-link page-id="firespinning" text="firespinning"></div>
+    <div internal-link page-id="photo_misc" text="etcetera"></div>
+    <a class="link" href="http://flickr.com/rfong">
+      <i class="fa fa-external-link"></i> flickr</a>
+
+    <div class="header">Code / etc.</div>
+    <div internal-link page-id="hacks" text="afternoon hacks"></div>
+    <div internal-link page-id="projects" text="personal projects"></div>
+    <a class="link" href="resume.pdf">
+      <i class="fa fa-external-link"></i> resume</a>
+
     <div class="header">Art</div>
     <div internal-link page-id="masks" text="masks"></div>
     <!--<a class="link internal" ng-click="show('art-errata')" data-page-id="art-errata">errata</a>-->
@@ -49,18 +65,8 @@
     <a class="link" href="https://www.instagram.com/skollipsism/">
       <i class="fa fa-instagram"></i> WIPs</a>
 
-    <div class="header">Photo+</div>
-    <div internal-link page-id="calendars" text="homononerotic sports calendars"></div>
-    <div internal-link page-id="firespinning" text="firespinning"></div>
-    <div internal-link page-id="video" text="videography"></div>
-    <a class="link" href="http://flickr.com/rfong">
-      <i class="fa fa-external-link"></i> flickr</a>
-
-    <div class="header">Code / etc.</div>
-    <div internal-link page-id="projects" text="personal projects"></div>
-    <div internal-link page-id="hacks" text="afternoon hacks"></div>
-    <a class="link" href="resume.pdf">
-      <i class="fa fa-external-link"></i> resume</a>
+    <div class="header"></div>
+    <div internal-link page-id="index" text="<i class='fa fa-home'></i>"></div>
   </div>
 
 
@@ -79,7 +85,7 @@
         <div ng-if="!group.longform"
              ng-repeat="item in group.items"
              class="item col-xs-12 col-sm-4">
-          <item-title url="item.url" title="item.title"></item-title>
+          <item-title url="item.url" text="item.title"></item-title>
           <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>
           <div ng-if="item.image">
             <a ng-if="item.url" href="{{ item.url }}"><img src="{{ item.image }}" /></a>
@@ -90,7 +96,7 @@
         <div ng-if="group.longform"
              ng-repeat="item in group.items"
              class="item longform col-xs-12">
-          <item-title url="item.url" title="item.title"></item-title>
+          <item-title url="item.url" text="item.title"></item-title>
           <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>
           <img src="{{item.image}}"/>
         </div>
@@ -102,29 +108,38 @@
     <!-- PAGES -->
 
 
-    <div class="page" data-page-id="index">
-      <img class="fill-height" src="images/skollmask_deepdream.jpg" />
+    <div class="page splash" data-page-id="index">
+      <img class="splash-image" src="images/skollmask_deepdream.jpg" />
     </div>
 
-    <div class="page" data-page-id="video">
-      <h1>amateur videography</h1>
+    <div class="page" data-page-id="photo_misc">
+      <h1>Preparing for Pi(e) Day</h1>
       <div class="item">
-        <div class="title">Preparing for Pi(e) Day</div>
-        <div class="subtitle">I got roped into this super last minute plan to pie all the admissions bloggers in the face to create the annual weird announcement video of MIT admit day, which is never not on Pi Day.</div>
+        <div class="subtitle">I got roped into this super last minute plan to create the annual announcement video for MIT admit day (which is never not on Pi Day) by pieing all the admissions bloggers in the face on a below-freezing afternoon in Cambridge.</div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/EDABQucvp18" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <h1>Reese von West</h1>
+      <div class="item">
+        <div class="subtitle">Probably 80% of all photos I take are of my cat. If your cat liked modeling this much you would do it too.</div>
+        <div class="photoset">
+          <img ng-repeat="photo in photosets.reese"
+               src="{{photo}}" />
+        </div>
       </div>
     </div>
 
     <div class="page" data-page-id="firespinning">
       <h1>firespinning</h1>
-      <p>I spin fire, but I probably spend more time taking pictures of other people doing it.</p>
-      <p>
-        <iframe src="https://player.vimeo.com/video/166598698" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        <p><a href="https://vimeo.com/channels/1073621">more on Vimeo</a></p>
-      </p>
-      <div ng-repeat="photo in photosets.firespinning"
-           class="col-xs-12 col-sm-3">
-        <img src="{{photo}}" style="width:100%"/>
+      <div class="item">
+        <p>I spin fire on occasion, but I probably spend more time taking pictures of other people doing it.</p>
+        <p>
+          <iframe src="https://player.vimeo.com/video/166598698" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </p>
+        <div class="photoset">
+          <img ng-repeat="photo in photosets.firespinning"
+               src="{{photo}}" />
+        </div>
       </div>
     </div>
 
