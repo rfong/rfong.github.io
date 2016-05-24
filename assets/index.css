@@ -113,7 +113,7 @@ h1, .title {
 /* end sidebar */
 /* layout */
 #main {
-  max-height: 90vh;
+  max-height: 100%;
   overflow: scroll;
   padding: 1em;
   padding-right: 3em; }
@@ -121,6 +121,7 @@ h1, .title {
     display: none; }
 
 .item {
+  position: relative;
   margin: 0 auto;
   margin-bottom: 2em; }
   .item:not(.longform) {
@@ -132,11 +133,12 @@ h1, .title {
     margin-bottom: 1em; }
   .item img {
     max-width: 100%;
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
-    -ms-border-radius: 1em;
-    -o-border-radius: 1em;
-    border-radius: 1em; }
+    max-height: 50vh;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    -o-border-radius: 0.25em;
+    border-radius: 0.25em; }
 
 .video img {
   width: 500px;

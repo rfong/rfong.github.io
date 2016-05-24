@@ -71,13 +71,13 @@ h1, .title
 #main
   ::-webkit-scrollbar
     display: none
-  max-height: 90vh
+  max-height: 100%
   overflow: scroll
   padding: 1em
   padding-right: 3em
 
 .item
-  //position: relative
+  position: relative
   margin: 0 auto
   margin-bottom: 2em
   &:not(.longform)
@@ -90,7 +90,8 @@ h1, .title
     margin-bottom: 1em
   img
     max-width: 100%
-    +border-radius(1em)
+    max-height: 50vh
+    +border-radius(0.25em)
 
 .video
   img

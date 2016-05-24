@@ -66,8 +66,9 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       items: [
         {
           title: 'Meta Markov Mashup',
-          subtitle: 'Upload text dumps, get out Markov-chain-generated mashups. Automation inspired by having to script <a href="https://twitter.com/bookofdatura">@bookofdatura</a>. Used to generate <a href="https://twitter.com/anatomopod">@anatomopod</a>, <a href="https://twitter.com/SlashICP">@SlashICP</a>, <a href="https://twitter.com/knitwithsolomon">@KnitWithSolomon</a>.',
+          subtitle: 'Upload text dumps, get out Markov-chain-generated mashups.',// Automation inspired by having to script <a href="https://twitter.com/bookofdatura">@bookofdatura</a>. Used to generate <a href="https://twitter.com/anatomopod">@anatomopod</a>, <a href="https://twitter.com/SlashICP">@SlashICP</a>, <a href="https://twitter.com/knitwithsolomon">@KnitWithSolomon</a>.',
           url: 'http://metamarkovmashup.herokuapp.com',
+          image: 'images/metamarkovmashup.png',
         },
         { 
           title: 'Pun Assistinator',
@@ -177,7 +178,7 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       items: [
         {
           title: "'Physical Dropbox' 3D Scanner",
-          subtitle: "A 3D scanner in four days from $50 of off the shelf parts @ Dropbox Hack Week 2013, with David Dohan, Abhishek Agrawal, Mason Liang. The general idea was a stepper motor controlled platform with vertical planes of light aimed at its center, which illuminated the object's deformation away from its axis of rotation. I worked on extrapolating point meshes from the images, which required a lot of noise reduction.<p>Useful to know: you get a plane of light by shining a light beam through a glass rod.</p>",
+          subtitle: "A 3D scanner in four days from $50 of off the shelf parts @ Dropbox Hack Week, with David Dohan, Abhishek Agrawal, Mason Liang. The general idea was a stepper motor controlled platform with vertical planes of light aimed at its center, which illuminated the object's deformation away from its axis of rotation. I worked on extrapolating point meshes from a series of webcam images of the rotated object, which required a lot of noise reduction.<p>Useful to know: you get a plane of light by shining a light beam through a glass rod.</p>",
           url: 'https://github.com/dmrd/physical-dropbox',
           image: 'images/physical_dropbox.jpg',
         },
