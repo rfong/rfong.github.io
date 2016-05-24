@@ -1,7 +1,7 @@
 @import _mixins
 @import global
 
-$color1: #bcd864
+$color1: $green /*#bcd864*/
 $color1-fade: #9db848
 $color2: #ca5234
 $color2-fade: #ec957f
@@ -9,11 +9,7 @@ $color2-fade: #ec957f
 /* generics */
 
 a
-  color: $color1
-  +transition(0.1s)
-  &:hover
-    color: $color1-fade
-    text-decoration: none
+  +transition(0.2s)
 
 /* sitewide */
 
@@ -38,7 +34,7 @@ h1, .title
   a
     color: #666
     &:hover
-      color: $color1
+      color: $green
 
 /* end sitewide */
 /* sidebar */

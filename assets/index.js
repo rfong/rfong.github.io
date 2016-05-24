@@ -18,12 +18,14 @@ var callOnEnter = function(callback, e) {
 };
 
 
-// hack
-$(document).ready(function() {
-  $('.page').addClass('hidden');
-});
-
 app.controller('myCtrl', function($scope, $http, $sce) {
+
+  $scope.init = function() {
+    $(document).ready(function() {  // superjank
+      $('.page').addClass('hidden');
+      $scope.show(window.location.hash.replace('#', ''));
+    });
+  };
 
   $scope.show = function(page_id) {
     $('.page').addClass('hidden');
@@ -59,7 +61,7 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       items: [
         {
           title: 'Meta Markov Mashup',
-          subtitle: 'Upload text dumps, get out Markov-chain-generated mashups. Automation inspired by having to script <a href="https://twitter.com/bookofdatura">@bookofdatura</a>. Used to generate <a href="https://twitter.com/anatomopod">@anatomopod</a>.',
+          subtitle: 'Upload text dumps, get out Markov-chain-generated mashups. Automation inspired by having to script <a href="https://twitter.com/bookofdatura">@bookofdatura</a>. Used to generate <a href="https://twitter.com/anatomopod">@anatomopod</a>, <a href="https://twitter.com/SlashICP">@SlashICP</a>, <a href="https://twitter.com/knitwithsolomon">@KnitWithSolomon</a>.',
           url: 'http://metamarkovmashup.herokuapp.com',
         },
         { 
@@ -214,6 +216,7 @@ app.controller('myCtrl', function($scope, $http, $sce) {
 
   };
 
+  $scope.init();
 });
 
 
@@ -237,17 +240,23 @@ app.directive('itemTitle', function() {
 // internal link
 app.directive('internalLink', function() {
   return {
-    restrict: 'E',
+    restrict: 'AE',
+    scope: {
+      pageId: '@',  // required attribute
+      text: '@',    // required attribute
+    },
     template: (
       '<a class="link internal" href="#{{pageId}}" ' +
-      '   ng-click="show(\'{{pageId}}\')" data-page-id="{{pageId}}" ' +
+      '   ng-click="onHandleClick()" data-page-id="{{pageId}}" ' +
       '   >{{text}}</a>'
     ),
     link: function(scope, element, attributes) {
-      angular.extend(scope, attributes);
-      console.log(attributes);
+      scope.onHandleClick = function() {
+        scope.$parent.show(scope.pageId);
+      };
     },
   };
 });
+
 
 app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });

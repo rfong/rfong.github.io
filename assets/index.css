@@ -7,7 +7,8 @@ body, html {
   padding: 0 auto; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #57bf43; }
   a:link, a:visited {
     color: #57bf43; }
   a:hover {
@@ -56,15 +57,11 @@ h2 {
 
 /* generics */
 a {
-  color: #bcd864;
-  -moz-transition: 0.1s;
-  -ms-transition: 0.1s;
-  -webkit-transition: 0.1s;
-  -o-transition: 0.1s;
-  transition: 0.1s; }
-  a:hover {
-    color: #9db848;
-    text-decoration: none; }
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s; }
 
 /* sitewide */
 body {
@@ -84,7 +81,7 @@ h1, .title {
   h1 a, .title a {
     color: #666; }
     h1 a:hover, .title a:hover {
-      color: #bcd864; }
+      color: #57bf43; }
 
 /* end sitewide */
 /* sidebar */

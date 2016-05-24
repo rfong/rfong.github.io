@@ -38,8 +38,7 @@
   <div id="sidebar" class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
 
     <div class="header">Art</div>
-    <a class="link internal" href="#masks" ng-click="show('masks')" data-page-id="masks">
-      masks</a>
+    <div internal-link page-id="masks" text="masks"></div>
     <!--<a class="link internal" ng-click="show('art-errata')" data-page-id="art-errata">errata</a>-->
     <a class="link" href="http://rflog.tumblr.com">
       <i class="fa fa-external-link"></i> art blog</a>
@@ -47,20 +46,16 @@
       <i class="fa fa-instagram"></i> WIPs</a>
 
     <div class="header">Photo+</div>
-    <a class="link internal" href="#calendars" ng-click="show('calendars')" data-page-id="calendars">
-      homononerotic sports calendars</a>
-    <a class="link internal" ng-click="show('firespinning')" data-page-id="firespinning">firespinning</a>
-    <a class="link internal" ng-click="show('video')" data-page-id="video">videography</a>
+    <div internal-link page-id="calendars" text="homononerotic sports calendars"></div>
+    <div internal-link page-id="firespinning" text="firespinning"></div>
+    <div internal-link page-id="video" text="videography"></div>
     <a class="link" href="http://flickr.com/rfong">
       <i class="fa fa-external-link"></i> flickr</a>
 
     <div class="header">Code / etc.</div>
+    <div internal-link page-id="projects" text="personal projects"></div>
+    <div internal-link page-id="hacks" text="afternoon hacks"></div>
     <a class="link" href="resume.pdf">resume</a>
-    <a class="link internal" href="#projects" ng-click="show('projects')" data-page-id="projects">
-      personal projects</a>
-    <a class="link internal" href="#hacks" ng-click="show('hacks')" data-page-id="hacks">
-      afternoon hacks</a>
-
   </div>
 
   <div id="main" class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
@@ -105,7 +100,11 @@
 
     <div class="page" data-page-id="firespinning">
       <h1>firespinning</h1>
-      <p>I started firespinning at the end of 2015, but mostly I take photos of other people doing it.</p>
+      <p>I spin fire, but I probably spend more time taking pictures of other people doing it.</p>
+      <p>
+        <iframe src="https://player.vimeo.com/video/166598698" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <p><a href="https://vimeo.com/channels/1073621">more on Vimeo</a></p>
+      </p>
       <div ng-repeat="photo in photosets.firespinning"
            class="col-xs-12 col-sm-3">
         <img src="{{photo}}" style="width:100%"/>
