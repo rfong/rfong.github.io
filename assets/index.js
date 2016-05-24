@@ -23,7 +23,12 @@ app.controller('myCtrl', function($scope, $http, $sce) {
   $scope.init = function() {
     $(document).ready(function() {  // superjank
       $('.page').addClass('hidden');
-      $scope.show(window.location.hash.replace('#', ''));
+      var pageId = window.location.hash.replace('#', '');
+      if (pageId) {
+        $scope.show(pageId);
+      } else {
+        $scope.show('index');
+      }
     });
   };
 
