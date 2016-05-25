@@ -81,7 +81,7 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       {
         src: 'images/art/tinyvest.jpg',
         link: 'http://rflog.tumblr.com/post/144545703661',
-        caption: 'leather tinyvest',
+        caption: 'tiny leather vest',
       },
       {
         src: 'images/art/gauntlet.jpg',
