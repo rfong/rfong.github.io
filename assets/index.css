@@ -79,6 +79,9 @@ h1 a, .title a {
   h1 a:hover, .title a:hover {
     color: #57bf43; }
 
+a.link {
+  cursor: pointer; }
+
 /* sidebar */
 #sidebar {
   padding-top: 30px;
