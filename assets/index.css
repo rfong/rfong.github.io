@@ -67,14 +67,17 @@ h2 {
 
 h1 {
   margin-bottom: 1.5em;
-  text-align: left; }
+  text-align: left;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: 0.15em; }
 
-h1, .title {
+.title {
   font-family: Georgia, Trebuchet, serif; }
-  h1 a, .title a {
-    color: #666; }
-    h1 a:hover, .title a:hover {
-      color: #57bf43; }
+
+h1 a, .title a {
+  color: #666; }
+  h1 a:hover, .title a:hover {
+    color: #57bf43; }
 
 /* sidebar */
 #sidebar {
