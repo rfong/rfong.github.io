@@ -33,13 +33,24 @@ app.controller('myCtrl', function($scope, $http, $sce) {
 
     // User moved in history
     window.onpopstate = function(event) {
-      $scope.loadPage(event.state.pageId);
+      $scope.loadPage(event.state ? event.state.pageId : '', true);
     };
   };
 
-  $scope.loadPage = function(pageId) {
-    window.history.pushState({pageId: pageId}, "rfong/" + pageId, pageId ? '#' + pageId : '');
+  $scope.loadPage = function(pageId, dontUpdateState) {
+    // by default, update history
+    if (!dontUpdateState) {
+      window.history.pushState({pageId: pageId},
+                               "rfong/" + pageId, pageId ? '#' + pageId : '');
+    }
+    // pause any running youtube players
+    _.each($('.youtube-player'), function(player) {
+      player.contentWindow.postMessage(
+        '{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');    
+    });
+    // set default
     if (pageId === '') { pageId = 'index'; }
+    // CSS classes
     $('.page').addClass('hidden');
     $('.page[data-page-id=' + pageId + ']').removeClass('hidden');
     $('#sidebar a.link').removeClass('selected');
@@ -408,12 +419,11 @@ app.directive('internalLink', function() {
       text: '@',    // required attribute
     },
     template: (
-      '<a class="link internal" href="{{href}}" ' +
+      '<a class="link internal"' +
       '   ng-click="onHandleClick()" data-page-id="{{pageId}}" ' +
       '   ng-bind-html="text | unsafe"></a>'
     ),
     link: function(scope, element, attributes) {
-      scope.href = (scope.pageId === 'index' ? '/' : '#' + scope.pageId);
       scope.onHandleClick = function() {
         scope.$parent.loadPage(scope.pageId);
       };
