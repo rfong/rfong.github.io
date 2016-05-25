@@ -154,7 +154,7 @@ body {
     .photoset .photo:last-child {
       margin-right: 0; }
   .photoset img {
-    height: 100%; }
+    height: 90%; }
 
 .video img {
   width: 500px;
