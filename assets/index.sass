@@ -55,6 +55,12 @@ h1, .title
   padding: 1em
   padding-right: 3em
 
+.page:not([data-page-id=index])
+  img
+    max-width: 100%
+    max-height: 50vh
+    +border-radius(0.25em)
+
 .item
   position: relative
   margin: 0 auto
@@ -67,10 +73,6 @@ h1, .title
     margin-bottom: 0.25em
   .subtitle
     margin-bottom: 1em
-  img
-    max-width: 100%
-    max-height: 50vh
-    +border-radius(0.25em)
 
 .photoset
   position: relative
@@ -79,11 +81,15 @@ h1, .title
   width: 100%
   overflow: scroll
 
-  img
-    height: 100%
+  .photo
+    display: inline-block
+    vertical-align: top
     margin-right: 5px
     &:last-child
       margin-right: 0
+
+  img
+    height: 100%
 
 .video
   img
@@ -93,3 +99,7 @@ h1, .title
 .splash
   .splash-image
     height: 100%
+
+.note
+  font-size: 10pt
+  font-family: 'Courier New'

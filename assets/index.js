@@ -25,19 +25,25 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       $('.page').addClass('hidden');
       var pageId = window.location.hash.replace('#', '');
       if (pageId) {
-        $scope.show(pageId);
+        $scope.loadPage(pageId);
       } else {
-        $scope.show('index');
+        $scope.loadPage('index');
       }
     });
+
+    // User moved in history
+    window.onpopstate = function(event) {
+      $scope.loadPage(event.state.pageId);
+    };
   };
 
-  $scope.show = function(page_id) {
-    if (page_id === '') { page_id = 'index'; }
+  $scope.loadPage = function(pageId) {
+    window.history.pushState({pageId: pageId}, "rfong/" + pageId, pageId ? '#' + pageId : '');
+    if (pageId === '') { pageId = 'index'; }
     $('.page').addClass('hidden');
-    $('.page[data-page-id=' + page_id + ']').removeClass('hidden');
+    $('.page[data-page-id=' + pageId + ']').removeClass('hidden');
     $('#sidebar a.link').removeClass('selected');
-    $('#sidebar a.link[data-page-id=' + page_id + ']').addClass('selected');
+    $('#sidebar a.link[data-page-id=' + pageId + ']').addClass('selected');
   };
 
   $scope.photosets = {
@@ -60,9 +66,115 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       'images/fire/feb1.jpg',
       'images/fire/steven.jpg',
     ],
+    'places': [
+      'images/places/baja_king_cactus.jpg',
+      'images/places/baja_totem.jpg',
+      'images/places/nevada_fork.jpg',
+      'images/places/bernal_layers.jpg',
+      'images/places/bman_gate.jpg',
+      'images/places/bm_lanterns.jpg',
+      'images/places/bm_waypoint.jpg',
+      'images/places/rome_hooves.jpg',
+      'images/places/cannes_flight.jpg',
+    ],
+    'textile': [
+      {
+        src: 'images/art/tinyvest.jpg',
+        link: 'http://rflog.tumblr.com/post/144545703661',
+        caption: 'leather tinyvest',
+      },
+      {
+        src: 'images/art/gauntlet.jpg',
+        link: 'http://rflog.tumblr.com/post/141355716521',
+        caption: 'leather gauntlet',
+      },
+      {
+        src: 'images/art/manta.gif',
+        link: 'http://rflog.tumblr.com/post/140791098266',
+        caption: 'plush nested manta ray',
+      },
+      {
+        src: 'images/art/heart.jpg',
+        link: 'http://rflog.tumblr.com/post/72886453482',
+      },
+      {
+        src: 'images/art/tinypug.jpg',
+        link: 'http://rflog.tumblr.com/post/70970017231',
+        caption: 'the tiniest pug',
+      },
+      {
+        src: 'images/art/pudgeon.jpg',
+        link: 'http://rflog.tumblr.com/post/70059941111',
+        caption: 'football cat sweater',
+      },
+    ],
+    'curios': [
+      {
+        src: 'images/art/skollfriend.png',
+        link: 'http://rflog.tumblr.com/post/96433390801',
+        caption: 'skollfriend',
+      },
+      {
+        src: 'images/art/dishwasher_indicator.jpg',
+        link: 'http://rflog.tumblr.com/post/98345218271',
+        caption: 'dishwasher indicator',
+      },
+      {
+        src: 'images/art/puzzlebox.jpg',
+        link: 'http://rflog.tumblr.com/post/85962876591',
+        caption: 'walnut puzzle box',
+      },
+      {
+        src: 'images/art/leakydog.jpg',
+        link: 'http://rflog.tumblr.com/post/71665692731',
+        caption: 'tavern sign',
+      },
+      {
+        src: 'images/art/skull_bottles.jpg',
+        link: 'http://rflog.tumblr.com/post/71487868099',
+        caption: 'tiny skull bottles',
+      },
+      {
+        src: 'images/art/headcrab.jpg',
+        link: 'http://rflog.tumblr.com/post/61376993059',
+        caption: 'tiny headcrab',
+      },
+    ],
+    'paintings': [
+      {
+        src: 'images/art/oxtail.jpg',
+        link: 'http://rflog.tumblr.com/post/137799327526',
+        caption: 'oxtail',
+      },
+      {
+        src: 'images/art/baku.jpg',
+        link: 'http://rflog.tumblr.com/post/134516695731',
+        caption: 'baku, eater of nightmares',
+      },
+      {
+        src: 'images/art/brewers_blackbird.jpg',
+        link: 'http://rflog.tumblr.com/post/124833775793',
+        caption: "morning commute bird",
+      },
+      {
+        src: 'images/art/selfportrait.jpg',
+        link: 'http://rflog.tumblr.com/post/121562527266',
+        caption: 'self-portrait',
+      },
+      {
+        src: 'images/art/cute_bat.jpg',
+        link: 'http://rflog.tumblr.com/post/114858502956',
+        caption: 'the cutest bat',
+      },
+    ],
     'branding': [
+      'images/art/validation2016.jpg',
+      'images/art/validation2015.jpg',
+      'images/art/stupidhackathon2016.png',
+      'images/art/helmet_noggin.jpg',
+      'images/art/react.jpg',
+      'images/art/cocoamotive.jpg',
       'http://41.media.tumblr.com/0d271bb48e13b991da9afe00fbea5274/tumblr_nzbgzjA1yh1r24k2yo2_r1_1280.jpg',
-      'images/stupidhackathon2016.png',
       'http://65.media.tumblr.com/05e58ff76d2ab9e99f750b6ef88c6be8/tumblr_nt413j7DSu1r24k2yo1_1280.jpg',
     ],
     'reese': [
@@ -241,6 +353,33 @@ app.controller('myCtrl', function($scope, $http, $sce) {
 });
 
 
+// scrolling photoset
+app.directive('photoset', function() {
+  return {
+    restrict: 'AE',
+    replace: true,
+    scope: {
+      photos: '=',
+    },
+    template: (
+      '<div class="photoset">' +
+      '  <span ng-repeat="photo in photos" class="photo">' +
+      '    <img ng-if="isSimplePhoto(photo) || !photo.link" src="{{photo}}" />' +
+      '    <a ng-if="!isSimplePhoto(photo) && photo.link" href="{{photo.link}}">' +
+      '      <img src="{{photo.src}}" />' +
+      '    </a>' +
+      '    <p ng-if="!isSimplePhoto(photo) && photo.caption" class="note" ' +
+      '       ng-bind-html="photo.caption | unsafe"></p>' +
+      '  </span>' +
+      '</div>'
+    ),
+    link: function(scope, element, attributes) {
+      scope.isSimplePhoto = function(photo) { return !_.isObject(photo); };
+    },
+  };
+});
+
+
 // item-title
 app.directive('itemTitle', function() {
   return {
@@ -249,7 +388,7 @@ app.directive('itemTitle', function() {
       url: '=',
       text: '=',
     },
-    template: ('' +
+    template: (
       '<div ng-if="text" class="title">' +
       '  <a ng-if="url" href="{{ url }}">{{ text }}</a>' +
       '  <span ng-if="!url">{{ text }}</span>' +
@@ -257,6 +396,7 @@ app.directive('itemTitle', function() {
     ),
   };
 });
+
 
 // internal link
 app.directive('internalLink', function() {
@@ -274,7 +414,7 @@ app.directive('internalLink', function() {
     link: function(scope, element, attributes) {
       scope.href = (scope.pageId === 'index' ? '/' : '#' + scope.pageId);
       scope.onHandleClick = function() {
-        scope.$parent.show(scope.pageId);
+        scope.$parent.loadPage(scope.pageId);
       };
     },
   };

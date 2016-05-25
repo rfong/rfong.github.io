@@ -45,9 +45,9 @@
 <div id="sidebar" class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
 
     <div class="header">Photo+</div>
-    <div internal-link page-id="calendars" text="homononerotic sports calendars"></div>
     <div internal-link page-id="firespinning" text="firespinning"></div>
-    <div internal-link page-id="photo_misc" text="etcetera"></div>
+    <div internal-link page-id="calendars" text="homononerotic sports calendars"></div>
+    <div internal-link page-id="photo_misc" text="et cetera"></div>
     <a class="link" href="http://flickr.com/rfong">
       <i class="fa fa-external-link"></i> flickr</a>
 
@@ -59,7 +59,7 @@
 
     <div class="header">Art</div>
     <div internal-link page-id="masks" text="masks"></div>
-    <!--<a class="link internal" ng-click="show('art-errata')" data-page-id="art-errata">errata</a>-->
+    <div internal-link page-id="art_misc" text="curiosities"></div>
     <a class="link" href="http://rflog.tumblr.com">
       <i class="fa fa-external-link"></i> art blog</a>
     <a class="link" href="https://www.instagram.com/skollipsism/">
@@ -113,19 +113,19 @@
     </div>
 
     <div class="page" data-page-id="photo_misc">
+      <h1>out & about</h1>
+      <div photoset photos="photosets.places"></div>
+
       <h1>Preparing for Pi(e) Day</h1>
       <div class="item">
-        <div class="subtitle">I got roped into this super last minute plan to create the annual announcement video for MIT admit day (which is never not on Pi Day) by pieing all the admissions bloggers in the face on a below-freezing afternoon in Cambridge.</div>
+        <div class="subtitle">I got roped into this super last minute plan to create the annual announcement video for MIT admit day (which is never <i>not</i> on Pi Day) by pieing all the active admissions bloggers in the face on a below-freezing afternoon in Cambridge.</div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/EDABQucvp18" frameborder="0" allowfullscreen></iframe>
       </div>
 
       <h1>Reese von West</h1>
       <div class="item">
         <div class="subtitle">Probably 80% of all photos I take are of my cat. If your cat liked modeling this much you would do it too.</div>
-        <div class="photoset">
-          <img ng-repeat="photo in photosets.reese"
-               src="{{photo}}" />
-        </div>
+        <div photoset photos="photosets.reese"></div>
       </div>
     </div>
 
@@ -136,20 +136,23 @@
         <p>
           <iframe src="https://player.vimeo.com/video/166598698" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </p>
-        <div class="photoset">
-          <img ng-repeat="photo in photosets.firespinning"
-               src="{{photo}}" />
-        </div>
+        <div photoset photos="photosets.firespinning"></div>
       </div>
     </div>
 
-    <!--<div class="page" data-page-id="art-errata">
-      <h1>branding</h1>
-      <div ng-repeat="photo in photosets.branding"
-           class="col-xs-12 col-sm-3">
-        <img src="{{photo}}" style="width:100%"/>
-      </div>
-    </div>-->
+    <div class="page" data-page-id="art_misc">
+      <h1>textile</h1>
+      <div photoset photos="photosets.textile"></div>
+
+      <h1>curios</h1>
+      <div photoset photos="photosets.curios"></div>
+
+      <h1>once in a blue moon I might actually paint something</h1>
+      <div photoset photos="photosets.paintings"></div>
+
+      <h1>branding & lettering</h1>
+      <div photoset photos="photosets.branding"></div>
+    </div>
 
   </div>
 
