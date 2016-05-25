@@ -103,6 +103,9 @@ h1, .title {
 
 /* end sidebar */
 /* layout */
+body {
+  overflow: hidden; }
+
 #main {
   max-height: 100%;
   overflow: scroll;

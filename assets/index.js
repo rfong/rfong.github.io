@@ -48,23 +48,23 @@ app.controller('myCtrl', function($scope, $http, $sce) {
 
   $scope.photosets = {
     'firespinning': [
-      'images/fire/may5.jpg',
+      { src: 'images/fire/may5.jpg', caption: 'may 2016'},
       'images/fire/may4.jpg',
       'images/fire/may3.jpg',
       'images/fire/may2.jpg',
       'images/fire/may1.jpg',
-      'images/fire/apr2.jpg',
+      { src: 'images/fire/apr2.jpg', caption: 'apr 2016'},
       'images/fire/apr1.jpg',
-      'images/fire/mar2.jpg',
+      { src: 'images/fire/mar2.jpg', caption: 'mar 2016'},
       'images/fire/mar1.jpg',
-      'images/fire/feb7.jpg',
+      { src: 'images/fire/feb7.jpg', caption: 'feb 2016'},
       'images/fire/feb6.jpg',
       'images/fire/feb5.jpg',
       'images/fire/feb4.jpg',
       'images/fire/feb3.jpg',
       'images/fire/feb2.jpg',
       'images/fire/feb1.jpg',
-      'images/fire/steven.jpg',
+      { src: 'images/fire/steven.jpg', caption: 'dec 2015'},
     ],
     'places': [
       'images/places/baja_king_cactus.jpg',
@@ -94,10 +94,6 @@ app.controller('myCtrl', function($scope, $http, $sce) {
         caption: 'plush nested manta ray',
       },
       {
-        src: 'images/art/heart.jpg',
-        link: 'http://rflog.tumblr.com/post/72886453482',
-      },
-      {
         src: 'images/art/tinypug.jpg',
         link: 'http://rflog.tumblr.com/post/70970017231',
         caption: 'the tiniest pug',
@@ -106,6 +102,11 @@ app.controller('myCtrl', function($scope, $http, $sce) {
         src: 'images/art/pudgeon.jpg',
         link: 'http://rflog.tumblr.com/post/70059941111',
         caption: 'football cat sweater',
+      },
+      {
+        src: 'images/art/heart.jpg',
+        link: 'http://rflog.tumblr.com/post/72886453482',
+        caption: 'anatomical heart',
       },
     ],
     'curios': [
@@ -364,7 +365,7 @@ app.directive('photoset', function() {
     template: (
       '<div class="photoset">' +
       '  <span ng-repeat="photo in photos" class="photo">' +
-      '    <img ng-if="isSimplePhoto(photo) || !photo.link" src="{{photo}}" />' +
+      '    <img ng-if="isSimplePhoto(photo) || !photo.link" src="{{photo.src || photo}}" />' +
       '    <a ng-if="!isSimplePhoto(photo) && photo.link" href="{{photo.link}}">' +
       '      <img src="{{photo.src}}" />' +
       '    </a>' +
