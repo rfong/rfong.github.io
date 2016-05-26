@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"
+      ng-app="myApp"
+      ng-controller="myCtrl">
+  <head>
+
+    <title>rfong.github.io</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- embed/search meta -->
+<meta name="description" content="Pun Assistinator" />
+<meta name="keywords" content="puns" />
+<meta property="og:title" content="Pun Assistinator" />
+<meta property="og:image:url" content="assets/screenshot.png" />
+<meta property="og:description" content="Terrible, terrible pun assistance utility." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Pun Assistinator" />
+<meta name="twitter:description" content="Terrible, terrible pun assistance utility." />
+<meta name="twitter:image" content="screenshot.png" />
+
+<!-- Tasty fonts -->
+<link href='https://fonts.googleapis.com/css?family=Domine:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<!-- Vendor styles -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/assets/lib/bootstrap-grid.css" />
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/assets/index.css" />
+
+<!-- Vendor scripts -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+<script src="/assets/lib/angular-sanitize.js"></script>
+
+<!-- Page scripts --> 
+<script type="text/javascript" src="/assets/index.js"></script>
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-39721986-5', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </head>
+  <body>
+
+    <div class="row">
+
+      <div id="sidebar" class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+        <div class="header">Photo+</div>
+<div internal-link page-id="firespinning" text="firespinning"></div>
+<div internal-link page-id="calendars" text="homononerotic sports calendars"></div>
+<div internal-link page-id="photo" text="et cetera"></div>
+<a class="link" href="http://flickr.com/rfong">
+  <i class="fa fa-external-link"></i> flickr</a>
+
+<div class="header">Code / etc.</div>
+<div internal-link page-id="hacks" text="afternoon hacks"></div>
+<div internal-link page-id="projects" text="personal projects"></div>
+<a class="link" href="resume.pdf">
+  <i class="fa fa-external-link"></i> resume</a>
+
+<div class="header">Art</div>
+<div internal-link page-id="masks" text="masks"></div>
+<div internal-link page-id="art" text="curiosities"></div>
+<a class="link" href="http://rflog.tumblr.com">
+  <i class="fa fa-external-link"></i> art blog</a>
+<a class="link" href="https://www.instagram.com/skollipsism/">
+  <i class="fa fa-instagram"></i> WIPs</a>
+
+<div class="header"></div>
+<div internal-link page-id="index" text="<i class='fa fa-home'></i>"></div>
+      </div>
+
+      <div id="main" class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+        <div class="page">
+          
+
+
+<div ng-init="group = groups['projects']">
+  <h1>{[ group.title ]}</h1>
+  <p ng-if="group.subtitle">{[ group.subtitle ]}</p>
+  <div class="row">
+  
+    <div ng-if="!group.longform"
+         ng-repeat="item in group.items"
+         class="item col-xs-12 col-sm-4">
+      <item-title url="item.url" text="item.title"></item-title>
+      <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>
+      <div ng-if="item.image">
+        <a ng-if="item.url" href="{[ item.url ]}"><img src="{[ item.image ]}" /></a>
+        <span ng-if="!item.url"><img src="{[ item.image ]}"</span>
+      </div>
+    </div>
+  
+    <div ng-if="group.longform"
+         ng-repeat="item in group.items"
+         class="item longform col-xs-12">
+      <item-title url="item.url" text="item.title"></item-title>
+      <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>
+      <img src="{[item.image]}"/>
+    </div>
+  
+  </div>
+</div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
