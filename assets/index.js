@@ -1,6 +1,14 @@
 var app = angular.module('myApp', ['ngSanitize']);
 
-// Underscore templating --> Mustache style
+
+// Change Angular templating from {{var}} to {[var]} to avoid Jinja conflict
+app.config(['$interpolateProvider', '$httpProvider',
+            function($interpolateProvider, $httpProvider) {
+  $interpolateProvider.startSymbol('{[');
+  $interpolateProvider.endSymbol(']}');
+}]);
+
+// Change Underscore templating from ERB to Mustache style
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
@@ -12,190 +20,163 @@ var setDefault = function(hash, key, defaultValue) {
 };
 
 var callOnEnter = function(callback, e) {
-  if (e.keyCode === 13) {
-    callback();
-  }
+  if (e.keyCode === 13) { callback(); }
 };
 
+function stopYoutube() {
+  _.each($('.youtube-player'), function(player) {
+    player.contentWindow.postMessage(
+      '{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');    
+  });
+}
 
 app.controller('myCtrl', function($scope, $http, $sce) {
 
-  $scope.init = function() {
-    $(document).ready(function() {  // superjank
-      $('.page').addClass('hidden');
-      var pageId = window.location.hash.replace('#', '');
-      if (pageId) {
-        $scope.loadPage(pageId);
-      } else {
-        $scope.loadPage('index');
-      }
-    });
-
-    // User moved in history
-    window.onpopstate = function(event) {
-      $scope.loadPage(event.state ? event.state.pageId : '', true);
-    };
-  };
-
-  $scope.loadPage = function(pageId, dontUpdateState) {
-    // by default, update history
-    if (!dontUpdateState) {
-      window.history.pushState({pageId: pageId},
-                               "rfong/" + pageId, pageId ? '#' + pageId : '');
-    }
-    // pause any running youtube players
-    _.each($('.youtube-player'), function(player) {
-      player.contentWindow.postMessage(
-        '{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');    
-    });
-    // set default
-    if (pageId === '') { pageId = 'index'; }
-    // CSS classes
-    $('.page').addClass('hidden');
-    $('.page[data-page-id=' + pageId + ']').removeClass('hidden');
+  // css nav to show current selection
+  $scope.navSelect = function(pageId) {
     $('#sidebar a.link').removeClass('selected');
     $('#sidebar a.link[data-page-id=' + pageId + ']').addClass('selected');
   };
 
   $scope.photosets = {
     'firespinning': [
-      { src: 'images/fire/may5.jpg', caption: 'may 2016'},
-      'images/fire/may4.jpg',
-      'images/fire/may3.jpg',
-      'images/fire/may2.jpg',
-      'images/fire/may1.jpg',
-      { src: 'images/fire/apr2.jpg', caption: 'apr 2016'},
-      'images/fire/apr1.jpg',
-      { src: 'images/fire/mar2.jpg', caption: 'mar 2016'},
-      'images/fire/mar1.jpg',
-      { src: 'images/fire/feb7.jpg', caption: 'feb 2016'},
-      'images/fire/feb6.jpg',
-      'images/fire/feb5.jpg',
-      'images/fire/feb4.jpg',
-      'images/fire/feb3.jpg',
-      'images/fire/feb2.jpg',
-      'images/fire/feb1.jpg',
-      { src: 'images/fire/steven.jpg', caption: 'dec 2015'},
+      { src: '/images/fire/may5.jpg', caption: 'may 2016'},
+      '/images/fire/may4.jpg',
+      '/images/fire/may3.jpg',
+      '/images/fire/may2.jpg',
+      '/images/fire/may1.jpg',
+      { src: '/images/fire/apr2.jpg', caption: 'apr 2016'},
+      '/images/fire/apr1.jpg',
+      { src: '/images/fire/mar2.jpg', caption: 'mar 2016'},
+      '/images/fire/mar1.jpg',
+      { src: '/images/fire/feb7.jpg', caption: 'feb 2016'},
+      '/images/fire/feb6.jpg',
+      '/images/fire/feb5.jpg',
+      '/images/fire/feb4.jpg',
+      '/images/fire/feb3.jpg',
+      '/images/fire/feb2.jpg',
+      '/images/fire/feb1.jpg',
+      { src: '/images/fire/steven.jpg', caption: 'dec 2015'},
     ],
     'places': [
-      'images/places/baja_king_cactus.jpg',
-      'images/places/baja_totem.jpg',
-      'images/places/nevada_fork.jpg',
-      'images/places/bernal_layers.jpg',
-      'images/places/bman_gate.jpg',
-      'images/places/bm_lanterns.jpg',
-      'images/places/bm_waypoint.jpg',
-      'images/places/rome_hooves.jpg',
-      'images/places/cannes_flight.jpg',
+      '/images/places/baja_king_cactus.jpg',
+      '/images/places/baja_totem.jpg',
+      '/images/places/nevada_fork.jpg',
+      '/images/places/bernal_layers.jpg',
+      '/images/places/bman_gate.jpg',
+      '/images/places/bm_lanterns.jpg',
+      '/images/places/bm_waypoint.jpg',
+      '/images/places/rome_hooves.jpg',
+      '/images/places/cannes_flight.jpg',
     ],
     'textile': [
       {
-        src: 'images/art/tinyvest.jpg',
+        src: '/images/art/tinyvest.jpg',
         link: 'http://rflog.tumblr.com/post/144545703661',
         caption: 'tiny leather vest',
       },
       {
-        src: 'images/art/gauntlet.jpg',
+        src: '/images/art/gauntlet.jpg',
         link: 'http://rflog.tumblr.com/post/141355716521',
         caption: 'leather gauntlet',
       },
       {
-        src: 'images/art/manta.gif',
+        src: '/images/art/manta.gif',
         link: 'http://rflog.tumblr.com/post/140791098266',
         caption: 'plush nested manta ray',
       },
       {
-        src: 'images/art/tinypug.jpg',
+        src: '/images/art/tinypug.jpg',
         link: 'http://rflog.tumblr.com/post/70970017231',
         caption: 'the tiniest pug',
       },
       {
-        src: 'images/art/pudgeon.jpg',
+        src: '/images/art/pudgeon.jpg',
         link: 'http://rflog.tumblr.com/post/70059941111',
         caption: 'football cat sweater',
       },
       {
-        src: 'images/art/heart.jpg',
+        src: '/images/art/heart.jpg',
         link: 'http://rflog.tumblr.com/post/72886453482',
         caption: 'anatomical heart',
       },
     ],
     'curios': [
       {
-        src: 'images/art/skollfriend.png',
+        src: '/images/art/skollfriend.png',
         link: 'http://rflog.tumblr.com/post/96433390801',
         caption: 'skollfriend',
       },
       {
-        src: 'images/art/dishwasher_indicator.jpg',
+        src: '/images/art/dishwasher_indicator.jpg',
         link: 'http://rflog.tumblr.com/post/98345218271',
         caption: 'dishwasher indicator',
       },
       {
-        src: 'images/art/puzzlebox.jpg',
+        src: '/images/art/puzzlebox.jpg',
         link: 'http://rflog.tumblr.com/post/85962876591',
         caption: 'walnut puzzle box',
       },
       {
-        src: 'images/art/leakydog.jpg',
+        src: '/images/art/leakydog.jpg',
         link: 'http://rflog.tumblr.com/post/71665692731',
         caption: 'tavern sign',
       },
       {
-        src: 'images/art/skull_bottles.jpg',
+        src: '/images/art/skull_bottles.jpg',
         link: 'http://rflog.tumblr.com/post/71487868099',
         caption: 'tiny skull bottles',
       },
       {
-        src: 'images/art/headcrab.jpg',
+        src: '/images/art/headcrab.jpg',
         link: 'http://rflog.tumblr.com/post/61376993059',
         caption: 'tiny headcrab',
       },
     ],
     'paintings': [
       {
-        src: 'images/art/oxtail.jpg',
+        src: '/images/art/oxtail.jpg',
         link: 'http://rflog.tumblr.com/post/137799327526',
         caption: 'oxtail',
       },
       {
-        src: 'images/art/baku.jpg',
+        src: '/images/art/baku.jpg',
         link: 'http://rflog.tumblr.com/post/134516695731',
         caption: 'baku, eater of nightmares',
       },
       {
-        src: 'images/art/brewers_blackbird.jpg',
+        src: '/images/art/brewers_blackbird.jpg',
         link: 'http://rflog.tumblr.com/post/124833775793',
         caption: "morning commute bird",
       },
       {
-        src: 'images/art/selfportrait.jpg',
+        src: '/images/art/selfportrait.jpg',
         link: 'http://rflog.tumblr.com/post/121562527266',
         caption: 'self-portrait',
       },
       {
-        src: 'images/art/cute_bat.jpg',
+        src: '/images/art/cute_bat.jpg',
         link: 'http://rflog.tumblr.com/post/114858502956',
         caption: 'the cutest bat',
       },
     ],
     'branding': [
-      'images/art/validation2016.jpg',
-      'images/art/validation2015.jpg',
-      'images/art/stupidhackathon2016.png',
-      'images/art/helmet_noggin.jpg',
-      'images/art/react.jpg',
-      'images/art/cocoamotive.jpg',
+      '/images/art/validation2016.jpg',
+      '/images/art/validation2015.jpg',
+      '/images/art/stupidhackathon2016.png',
+      '/images/art/helmet_noggin.jpg',
+      '/images/art/react.jpg',
+      '/images/art/cocoamotive.jpg',
       'http://41.media.tumblr.com/0d271bb48e13b991da9afe00fbea5274/tumblr_nzbgzjA1yh1r24k2yo2_r1_1280.jpg',
       'http://65.media.tumblr.com/05e58ff76d2ab9e99f750b6ef88c6be8/tumblr_nt413j7DSu1r24k2yo1_1280.jpg',
     ],
     'reese': [
-      'images/reese/meow_bao.jpg',
-      'images/reese/pose.jpg',
-      'images/reese/complementary.jpg',
-      'images/reese/extra_regal.jpg',
-      'images/reese/yawn.jpg',
-      'images/reese/lick.jpg',
+      '/images/reese/meow_bao.jpg',
+      '/images/reese/pose.jpg',
+      '/images/reese/complementary.jpg',
+      '/images/reese/extra_regal.jpg',
+      '/images/reese/yawn.jpg',
+      '/images/reese/lick.jpg',
     ],
   };
 
@@ -207,55 +188,55 @@ app.controller('myCtrl', function($scope, $http, $sce) {
           title: 'Meta Markov Mashup',
           subtitle: 'Upload text dumps, get out Markov-chain-generated mashups.',// Automation inspired by having to script <a href="https://twitter.com/bookofdatura">@bookofdatura</a>. Used to generate <a href="https://twitter.com/anatomopod">@anatomopod</a>, <a href="https://twitter.com/SlashICP">@SlashICP</a>, <a href="https://twitter.com/knitwithsolomon">@KnitWithSolomon</a>.',
           url: 'http://metamarkovmashup.herokuapp.com',
-          image: 'images/metamarkovmashup.png',
+          image: '/images/metamarkovmashup.png',
         },
         { 
           title: 'Pun Assistinator',
           subtitle: 'Phonetically similar word lookup',
           url: 'http://rfong.github.io/pun',
-          image: 'images/pun.png',
+          image: '/images/pun.png',
         },
         { 
           title: 'Replacerator',
           subtitle: 'Chrome extension to define custom browser text replacement rules',
           url: 'https://chrome.google.com/webstore/detail/replacerator/gaajhenbcclienfnniphiiambbbninnp',
-          image: 'images/replacerator.png',
+          image: '/images/replacerator.png',
         },
         {
           title: 'Plant Toxicity Lookup',
           subtitle: 'Super simple houseplant toxicity lookup for pets, based on ASPCA data',
           url: 'https://rfong.github.io/plant-toxicity/',
-          image: 'images/plant-toxicity.png',
+          image: '/images/plant-toxicity.png',
         },
         {
           title: 'resonant-hues',
           subtitle: 'Fast website palette tester generated from minimal json',
           url: 'http://rfong.github.io/resonanthues/',
-          image: 'images/resonanthues.png',
+          image: '/images/resonanthues.png',
         },
         {
           title: 'Madlib Maker',
           subtitle: 'Simple, shareable madlib interface',
           url: 'http://madlib.herokuapp.com/',
-          image: 'images/madlib.png',
+          image: '/images/madlib.png',
         },
         {
           title: 'Sexy Voice Soundboard',
           subtitle: "The world's finest voices in one convenient soundboard",
           url: 'http://www.sexyvoicesoundboard.com/',
-          image: 'images/svs.png',
+          image: '/images/svs.png',
         },
         {
           title: 'Why We Love You',
           subtitle: 'Sentimental Feltron-inspired website for friends with the bad kind of blues.',
           url: 'http://whyweloveyou.com/',
-          image: 'images/wwly.png',
+          image: '/images/wwly.png',
         },
         {
           title: 'Santoku',
           subtitle: 'Embeddable recipe widget that arbitrarily scales and converts between units',
           url: 'http://santoku.herokuapp.com/',
-          image: 'images/santoku.png',
+          image: '/images/santoku.png',
         },
         {
           title: 'Snailman',
@@ -272,19 +253,19 @@ app.controller('myCtrl', function($scope, $http, $sce) {
           title: 'Daft Funk',
           subtitle: 'Daft Punk inspired LED mask',
           url: 'http://rflog.tumblr.com/post/133842382406',
-          image: 'images/daftpunk.jpg',
+          image: '/images/daftpunk.jpg',
         },
         {
           title: 'Qoyuvon',
           subtitle: 'Skyrim dragon priest mask',
           url: 'http://rflog.tumblr.com/post/103921194046',
-          image: 'images/skyrim.jpg',
+          image: '/images/skyrim.jpg',
         },
         {
           title: 'Skollmask',
           subtitle: 'Sabertooth tiger skull mask',
           url: 'http://rflog.tumblr.com/post/62279392814',
-          image: 'images/skollmask.jpg',
+          image: '/images/skollmask.jpg',
         },
       ],
     },
@@ -296,17 +277,17 @@ app.controller('myCtrl', function($scope, $http, $sce) {
         {
           title: 'The Euphoria of Golf',
           url: 'http://www.zazzle.com/the_euphoria_of_golf-158502025422375595',
-          image: 'images/calendar3.jpg',
+          image: '/images/calendar3.jpg',
         },
         {
           title: 'The Spirit of Football',
           url: 'http://www.zazzle.com/the_spirit_of_football_calendar-158847982790357840',
-          image: 'images/calendar2.jpg',
+          image: '/images/calendar2.jpg',
         },
         {
           title: 'The Art of Tennis',
           url: 'http://www.zazzle.com/the_art_of_tennis_calendar-158761540728115422',
-          image: 'images/calendar1.jpg',
+          image: '/images/calendar1.jpg',
         },
       ],
     },
@@ -317,9 +298,9 @@ app.controller('myCtrl', function($scope, $http, $sce) {
       items: [
         {
           title: "'Physical Dropbox' 3D Scanner",
-          subtitle: "A 3D scanner in four days from $50 of off the shelf parts @ Dropbox Hack Week, with David Dohan, Abhishek Agrawal, Mason Liang. The general idea was a stepper motor controlled platform with vertical planes of light aimed at its center, which illuminated the object's deformation away from its axis of rotation. I worked on extrapolating point meshes from a series of webcam images of the rotated object, which required a lot of noise reduction.<p>Useful to know: you get a plane of light by shining a light beam through a glass rod :)</p>",
+          subtitle: "A 3D scanner in four days from $50 of off the shelf parts @ Dropbox Hack Week, with David Dohan, Abhishek Agrawal, Mason Liang. The general idea was a stepper motor controlled platform with vertical planes of light aimed at its center, which illuminated the object's deformation away from its axis of rotation. I worked on extrapolating point meshes from a series of webcam /images of the rotated object, which required a lot of noise reduction.<p>Useful to know: you get a plane of light by shining a light beam through a glass rod :)</p>",
           url: 'https://github.com/dmrd/physical-dropbox',
-          image: 'images/physical_dropbox.jpg',
+          image: '/images/physical_dropbox.jpg',
         },
         {
           title: 'Asler',
@@ -346,7 +327,7 @@ app.controller('myCtrl', function($scope, $http, $sce) {
         {
           title: 'NCreator',
           subtitle: "(Jan 2007)<p>Wrote a CNC programming visualizer and G-code generator for my high school robotics team's CNC tabletop mill that could be used to create sequences of high-level operations (facing, boring, trussing, etc) while accounting for machining constraints. CAM software was expensive, and manual G-code calculation was a slow and human-error-ridden process involving constant compensation for variables like cutter radius and appropriate feed rate and direction for various operations.</p>",
-          image: 'images/ncreator.jpg',
+          image: '/images/ncreator.jpg',
         },
         {
           title: 'Mecanum drive',
@@ -361,7 +342,7 @@ app.controller('myCtrl', function($scope, $http, $sce) {
 
   };
 
-  $scope.init();
+  //$scope.init();
 });
 
 
@@ -419,13 +400,13 @@ app.directive('internalLink', function() {
       text: '@',    // required attribute
     },
     template: (
-      '<a class="link internal"' +
+      '<a class="link internal" href="{{pageId}}.html" ' +
       '   ng-click="onHandleClick()" data-page-id="{{pageId}}" ' +
       '   ng-bind-html="text | unsafe"></a>'
     ),
     link: function(scope, element, attributes) {
       scope.onHandleClick = function() {
-        scope.$parent.loadPage(scope.pageId);
+        //scope.$parent.loadPage(scope.pageId);
       };
     },
   };
