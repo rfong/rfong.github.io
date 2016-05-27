@@ -38,148 +38,6 @@ app.controller('myCtrl', function($scope, $http, $sce) {
     $('#sidebar a.link[data-page-id=' + pageId + ']').addClass('selected');
   };
 
-  $scope.photosets = {
-    'firespinning': [
-      { src: '/images/fire/may5.jpg', caption: 'may 2016'},
-      '/images/fire/may4.jpg',
-      '/images/fire/may3.jpg',
-      '/images/fire/may2.jpg',
-      '/images/fire/may1.jpg',
-      { src: '/images/fire/apr2.jpg', caption: 'apr 2016'},
-      '/images/fire/apr1.jpg',
-      { src: '/images/fire/mar2.jpg', caption: 'mar 2016'},
-      '/images/fire/mar1.jpg',
-      { src: '/images/fire/feb7.jpg', caption: 'feb 2016'},
-      '/images/fire/feb6.jpg',
-      '/images/fire/feb5.jpg',
-      '/images/fire/feb4.jpg',
-      '/images/fire/feb3.jpg',
-      '/images/fire/feb2.jpg',
-      '/images/fire/feb1.jpg',
-      { src: '/images/fire/steven.jpg', caption: 'dec 2015'},
-    ],
-    'places': [
-      '/images/places/baja_king_cactus.jpg',
-      '/images/places/baja_totem.jpg',
-      '/images/places/nevada_fork.jpg',
-      '/images/places/bernal_layers.jpg',
-      '/images/places/bman_gate.jpg',
-      '/images/places/bm_lanterns.jpg',
-      '/images/places/bm_waypoint.jpg',
-      '/images/places/rome_hooves.jpg',
-      '/images/places/cannes_flight.jpg',
-    ],
-    'textile': [
-      {
-        src: '/images/art/tinyvest.jpg',
-        link: 'http://rflog.tumblr.com/post/144545703661',
-        caption: 'tiny leather vest',
-      },
-      {
-        src: '/images/art/gauntlet.jpg',
-        link: 'http://rflog.tumblr.com/post/141355716521',
-        caption: 'leather gauntlet',
-      },
-      {
-        src: '/images/art/manta.gif',
-        link: 'http://rflog.tumblr.com/post/140791098266',
-        caption: 'plush nested manta ray',
-      },
-      {
-        src: '/images/art/tinypug.jpg',
-        link: 'http://rflog.tumblr.com/post/70970017231',
-        caption: 'the tiniest pug',
-      },
-      {
-        src: '/images/art/pudgeon.jpg',
-        link: 'http://rflog.tumblr.com/post/70059941111',
-        caption: 'football cat sweater',
-      },
-      {
-        src: '/images/art/heart.jpg',
-        link: 'http://rflog.tumblr.com/post/72886453482',
-        caption: 'anatomical heart',
-      },
-    ],
-    'curios': [
-      {
-        src: '/images/art/skollfriend.png',
-        link: 'http://rflog.tumblr.com/post/96433390801',
-        caption: 'skollfriend',
-      },
-      {
-        src: '/images/art/dishwasher_indicator.jpg',
-        link: 'http://rflog.tumblr.com/post/98345218271',
-        caption: 'dishwasher indicator',
-      },
-      {
-        src: '/images/art/puzzlebox.jpg',
-        link: 'http://rflog.tumblr.com/post/85962876591',
-        caption: 'walnut puzzle box',
-      },
-      {
-        src: '/images/art/leakydog.jpg',
-        link: 'http://rflog.tumblr.com/post/71665692731',
-        caption: 'tavern sign',
-      },
-      {
-        src: '/images/art/skull_bottles.jpg',
-        link: 'http://rflog.tumblr.com/post/71487868099',
-        caption: 'tiny skull bottles',
-      },
-      {
-        src: '/images/art/headcrab.jpg',
-        link: 'http://rflog.tumblr.com/post/61376993059',
-        caption: 'tiny headcrab',
-      },
-    ],
-    'paintings': [
-      {
-        src: '/images/art/oxtail.jpg',
-        link: 'http://rflog.tumblr.com/post/137799327526',
-        caption: 'oxtail',
-      },
-      {
-        src: '/images/art/baku.jpg',
-        link: 'http://rflog.tumblr.com/post/134516695731',
-        caption: 'baku, eater of nightmares',
-      },
-      {
-        src: '/images/art/brewers_blackbird.jpg',
-        link: 'http://rflog.tumblr.com/post/124833775793',
-        caption: "morning commute bird",
-      },
-      {
-        src: '/images/art/selfportrait.jpg',
-        link: 'http://rflog.tumblr.com/post/121562527266',
-        caption: 'self-portrait',
-      },
-      {
-        src: '/images/art/cute_bat.jpg',
-        link: 'http://rflog.tumblr.com/post/114858502956',
-        caption: 'the cutest bat',
-      },
-    ],
-    'branding': [
-      '/images/art/validation2016.jpg',
-      '/images/art/validation2015.jpg',
-      '/images/art/stupidhackathon2016.png',
-      '/images/art/helmet_noggin.jpg',
-      '/images/art/react.jpg',
-      '/images/art/cocoamotive.jpg',
-      'http://41.media.tumblr.com/0d271bb48e13b991da9afe00fbea5274/tumblr_nzbgzjA1yh1r24k2yo2_r1_1280.jpg',
-      'http://65.media.tumblr.com/05e58ff76d2ab9e99f750b6ef88c6be8/tumblr_nt413j7DSu1r24k2yo1_1280.jpg',
-    ],
-    'reese': [
-      '/images/reese/meow_bao.jpg',
-      '/images/reese/pose.jpg',
-      '/images/reese/complementary.jpg',
-      '/images/reese/extra_regal.jpg',
-      '/images/reese/yawn.jpg',
-      '/images/reese/lick.jpg',
-    ],
-  };
-
   $scope.groups = {
     'hacks': {
       title: 'afternoon hacks',
@@ -341,6 +199,20 @@ app.controller('myCtrl', function($scope, $http, $sce) {
     },
 
   };
+
+  $scope.loadJsonInScope = function(jsonUrl, scopeVar) {
+    $http({
+      method: 'GET',
+      url: jsonUrl,
+    }).then(function successCallback(response) {
+      $scope[scopeVar] = response.data;
+    }, function errorCallback(response) {
+      console.log("Could not fetch photosets.");
+    });
+  };
+
+  $scope.loadJsonInScope('/assets/photosets.json', 'photosets');
+  $scope.loadJsonInScope('/assets/groups.json', 'groups');
 
   //$scope.init();
 });
