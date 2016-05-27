@@ -2,7 +2,7 @@
 {% block content %}
 {# Set `group` in template to use. #}
 
-<div ng-init="group = groups['{{group}}']">
+<div ng-init="groupName = '{{group}}'">
   <h1>{[ group.title ]}</h1>
   <p ng-if="group.subtitle">{[ group.subtitle ]}</p>
   <div class="row">

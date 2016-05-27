@@ -55,7 +55,7 @@
     <div class="row">
 
       <div id="sidebar" class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
-        <div ng-init="activePageId='index'">
+        <div ng-init="activePageId='calendars'">
 
 <div class="header">Photo+</div>
 <div internal-link page-id="firespinning" text="firespinning"></div>
@@ -88,13 +88,33 @@
         <div class="page">
           
 
-<div class="splash">
-  <img class="splash-image" src="/images/skollmask_deepdream.jpg" />
-  <span class="splash-text">
-    whoami: rfong<br/>
-    whatami: idk
-  </span>
-</div> 
+
+<div ng-init="groupName = 'calendars'">
+  <h1>{[ group.title ]}</h1>
+  <p ng-if="group.subtitle">{[ group.subtitle ]}</p>
+  <div class="row">
+  
+    <div ng-if="!group.longform"
+         ng-repeat="item in group.items"
+         class="item col-xs-12 col-sm-4">
+      <item-title url="item.url" text="item.title"></item-title>
+      <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>
+      <div ng-if="item.image">
+        <a ng-if="item.url" href="{[ item.url ]}"><img src="{[ item.image ]}" /></a>
+        <span ng-if="!item.url"><img src="{[ item.image ]}"</span>
+      </div>
+    </div>
+  
+    <div ng-if="group.longform"
+         ng-repeat="item in group.items"
+         class="item longform col-xs-12">
+      <item-title url="item.url" text="item.title"></item-title>
+      <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>
+      <img src="{[item.image]}"/>
+    </div>
+  
+  </div>
+</div>
 
 
         </div>

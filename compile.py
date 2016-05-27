@@ -2,7 +2,7 @@ from jinja2 import Environment, PackageLoader
 import os
 
 
-BUILD_DIR = 'build'
+BUILD_DIR = '.'
 TEMPLATES_DIR = 'templates'
 
 env = Environment(loader=PackageLoader(__name__, TEMPLATES_DIR))
@@ -16,6 +16,7 @@ for filename in pages:
     template = env.get_template(filename)
     variables = {
       'STATIC_DIR': '/assets/',
+      'page_id': os.path.splitext(os.path.basename(filename))[0],
     }
     f.write(template.render(**variables))
     print "Compiled '%s/%s' to '%s/%s'" % (
