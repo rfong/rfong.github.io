@@ -65,6 +65,9 @@ h2 {
 .clear {
   clear: both; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 h1 {
   margin-bottom: 1.5em;
   text-align: left;
