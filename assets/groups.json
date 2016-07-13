@@ -3,6 +3,12 @@
       "title": "afternoon hacks",
       "items": [
         {
+          "title": "2D Poi Simulator",
+          "subtitle": "Simple HTML canvas 2d poi simulator. Ideally I'd add gravity and force diagrams to this at some point.",
+          "url": "https://rfong.github.io/poi/",
+          "image": "/images/poi_sim.png"
+        },
+        {
           "title": "Meta Markov Mashup",
           "subtitle": "Upload text dumps, get out Markov-chain-generated mashups.",
           "url": "http://metamarkovmashup.herokuapp.com",
@@ -34,7 +40,7 @@
         },
         {
           "title": "Madlib Maker",
-          "subtitle": "Simple, shareable madlib interface",
+          "subtitle": "Simple, storeable, shareable madlibs",
           "url": "http://madlib.herokuapp.com/",
           "image": "/images/madlib.png"
         },
