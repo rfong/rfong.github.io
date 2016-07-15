@@ -1,6 +1,12 @@
 {
     "firespinning": [
-      { "src": "/images/fire/fd1.jpg", "caption": "firedrums 2016"},
+      { "src": "/images/fire/jul1.jpg", "caption": "jul 2016"},
+      "/images/fire/jul2.jpg",
+      "/images/fire/jul3.jpg",
+      "/images/fire/jul4.jpg",
+      "/images/fire/jul5.jpg",
+      "/images/fire/jul6.jpg",
+      { "src": "/images/fire/fd1.jpg", "caption": "jun 2016"},
       "images/fire/fd2.jpg",
       "images/fire/fd3.jpg",
       "images/fire/fd4.jpg",
