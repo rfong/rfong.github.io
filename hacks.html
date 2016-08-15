@@ -93,8 +93,8 @@
 
 <div ng-init="groupName = 'hacks'">
   <h1>{[ group.title ]}</h1>
-  <p ng-if="group.subtitle">{[ group.subtitle ]}</p>
-  <div class="row">
+  <p ng-if="group.subtitle" class="group-subtitle">{[ group.subtitle ]}</p>
+  <div class="row group-content">
   
     <div ng-if="!group.longform"
          ng-repeat="item in group.items"
