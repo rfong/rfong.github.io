@@ -109,7 +109,7 @@
       {
         "src": "/images/art/oxtail.jpg",
         "link": "http://rflog.tumblr.com/post/137799327526",
-        "caption": "oxtail (<a href='http://www.redbubble.com/people/skollipsism/works/21955984-oxtail?p=sticker'>buy now</a>)"
+        "caption": "oxtail (<a href='http://www.redbubble.com/people/skollipsism/works/21955984-oxtail?p=sticker'>sticker</a>)"
       },
       {
         "src": "/images/art/baku.jpg",
@@ -133,16 +133,18 @@
       }
     ],
     "branding": [
+      {"src": "/images/art/bike_topology.png", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22313982-bike-lock-mishap-prevention'>sticker</a>"},
+      {"src": "/images/art/sphere_packings.jpg", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22877742-sphere-packings'>sticker</a>"},
       "/images/art/systemsbathroom.jpg",
       "/images/art/artparty_junk_sign.jpg",
       "/images/art/validation2016.jpg",
       "/images/art/validation2015.jpg",
       "/images/art/stupidhackathon2016.png",
       "/images/art/helmet_noggin.jpg",
-      {"src": "/images/art/react.jpg", "caption": "<a href='http://www.zazzle.com/less_is_more_postcard-239196165809509718'>get your own</a>" },
+      {"src": "/images/art/react.jpg", "caption": "<a href='http://www.zazzle.com/less_is_more_postcard-239196165809509718'>postcard</a>" },
       "/images/art/cocoamotive.jpg",
       "http://41.media.tumblr.com/0d271bb48e13b991da9afe00fbea5274/tumblr_nzbgzjA1yh1r24k2yo2_r1_1280.jpg",
-      {"src": "http://65.media.tumblr.com/05e58ff76d2ab9e99f750b6ef88c6be8/tumblr_nt413j7DSu1r24k2yo1_1280.jpg", "caption": "<a href='http://www.zazzle.com/miss_compiling_postcard-239884981449558687'>docker</a> / <a href='http://www.zazzle.com/hate_compiling_postcard-239142311664882952'>assembly</a>" }
+      {"src": "http://65.media.tumblr.com/05e58ff76d2ab9e99f750b6ef88c6be8/tumblr_nt413j7DSu1r24k2yo1_1280.jpg", "caption": "<a href='http://www.zazzle.com/miss_compiling_postcard-239884981449558687'>docker postcard</a> / <a href='http://www.zazzle.com/hate_compiling_postcard-239142311664882952'>assembly postcard</a>" }
     ],
     "reese": [
       "/images/reese/meow_bao.jpg",
