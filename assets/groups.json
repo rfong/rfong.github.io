@@ -4,13 +4,13 @@
       "items": [
         {
           "title": "2D Poi Simulator",
-          "subtitle": "Simple HTML canvas 2d poi simulator. Ideally I'd add gravity and force diagrams to this at some point.",
+          "subtitle": "Simple HTML canvas 2d poi simulator. A visual aid to help you understand the relationship between hands, phases, and poi patterns.",
           "url": "https://rfong.github.io/poi/",
           "image": "/images/poi_sim.png"
         },
         {
           "title": "Meta Markov Mashup",
-          "subtitle": "Upload text dumps, get out Markov-chain-generated mashups.",
+          "subtitle": "Upload text dumps, get out Markov-chain mashups.",
           "url": "http://metamarkovmashup.herokuapp.com",
           "image": "/images/metamarkovmashup.png"
         },
@@ -22,7 +22,7 @@
         },
         { 
           "title": "Replacerator",
-          "subtitle": "Chrome extension to define custom browser text replacement rules",
+          "subtitle": "Chrome extension to let you customize your own browser text replacement rules",
           "url": "https://chrome.google.com/webstore/detail/replacerator/gaajhenbcclienfnniphiiambbbninnp",
           "image": "/images/replacerator.png"
         },
@@ -138,8 +138,7 @@
         },
         {
           "title": "Automated satire detection",
-          "subtitle": "Naive Bayes classifiers with lexical features for automated satire classification of news articles. My final project while taking Regina Barzilay's natural language processing class, <a href='http://people.csail.mit.edu/regina/6864/'>6.864</a>.<p>For luls, I <a href='http://rfol.io/satire-upgoerfive.html'>translated my writeup to Up-goer Five</a>, a.k.a. the thousand most common English words.</p>",
-          "url": "https://github.com/rfong/satire"
+          "subtitle": "Naive Bayes classifiers with lexical features for automated satire classification of news articles. My final project while taking Regina Barzilay's natural language processing class, <a href='http://people.csail.mit.edu/regina/6864/'>6.864</a>.<p>For luls, I <a href='http://rfol.io/satire-upgoerfive.html'>translated my writeup to Up-goer Five</a>, a.k.a. the thousand most common English words.</p>"
         },
         {
           "title": "Virtual laparoscopic suturing simulator",
@@ -147,7 +146,7 @@
         },
         {
           "title": "NCreator",
-          "subtitle": "(Jan 2007)<p>Wrote a CNC programming visualizer and G-code generator for my high school robotics team's CNC tabletop mill that could be used to create sequences of high-level operations (facing, boring, trussing, etc) while accounting for machining constraints. CAM software was expensive, and manual G-code calculation was a slow and human-error-ridden process involving constant compensation for variables like cutter radius and appropriate feed rate and direction for various operations.</p>",
+          "subtitle": "(Jan 2007)<p>Wrote a CNC programming visualizer and G-code generator for my high school robotics team's 2.5D CNC tabletop mill that could be used to create sequences of high-level operations (facing, boring, trussing, etc) while accounting for machining constraints. CAM software was expensive, and manual G-code calculation was a slow and human-error-ridden process involving constant compensation for variables like cutter radius and appropriate feed rate and direction for various operations.</p>",
           "image": "/images/ncreator.jpg"
         },
         {

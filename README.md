@@ -1,9 +1,12 @@
 build
 -----
-`virtualenv venv`
+```
+virtualenv venv
+venv/bin/activate
+pip install -r requirements.txt
+```
 
-`venv/bin/activate`
+Run the template compiler script:
+```./compile.sh```
 
-`pip install -r requirements.txt`
-
-`./compile.sh  # watcher script`
+Most site content just lives in `assets/*.json` and is bound to the templates.
