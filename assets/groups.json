@@ -3,6 +3,12 @@
       "title": "afternoon hacks",
       "items": [
         {
+          "title": "Fan Spinning Exercises",
+          "subtitle": "Randomly generated transition exercises for techy fan spinners.",
+          "url": "https://rfong.github.io/fan-dice/",
+          "image": "/images/fan_dice.png"
+        },
+        {
           "title": "2D Poi Simulator",
           "subtitle": "Simple HTML canvas 2d poi simulator. A visual aid to help you understand the relationship between hands, phases, and poi patterns.",
           "url": "https://rfong.github.io/poi/",
