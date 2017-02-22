@@ -48,15 +48,18 @@ a.link
     padding-top: 10px
     color: #777
 
-  a
+  a.link
     display: block
     margin: 0.5em 0
     text-decoration: none
     padding-top: 1px
+    &.inline
+      display: inline-block
+      margin: 0
     &.selected
       border-right: 4px solid $red
 
-  .header, a
+  .header, a.link
     padding-right: 0.5em
     border-right: 4px solid transparent
 

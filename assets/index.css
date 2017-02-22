@@ -106,14 +106,17 @@ a.link {
     margin: 1em 0 0.5em 0;
     padding-top: 10px;
     color: #777; }
-  #sidebar a {
+  #sidebar a.link {
     display: block;
     margin: 0.5em 0;
     text-decoration: none;
     padding-top: 1px; }
-    #sidebar a.selected {
+    #sidebar a.link.inline {
+      display: inline-block;
+      margin: 0; }
+    #sidebar a.link.selected {
       border-right: 4px solid #e62e00; }
-  #sidebar .header, #sidebar a {
+  #sidebar .header, #sidebar a.link {
     padding-right: 0.5em;
     border-right: 4px solid transparent; }
 
