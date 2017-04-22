@@ -20,17 +20,17 @@
           "url": "http://metamarkovmashup.herokuapp.com",
           "image": "/images/metamarkovmashup.png"
         },
-        { 
-          "title": "Pun Assistinator",
-          "subtitle": "Phonetically similar word lookup",
-          "url": "http://rfong.github.io/pun",
-          "image": "/images/pun.png"
-        },
         {
           "title": "Strummutations",
           "subtitle": "Randomly generated 4/4 strum patterns to use while I learn guitar.",
           "url": "https://rfong.github.io/strummutations/",
           "image": "/images/strummutations.png"
+        },
+        { 
+          "title": "Pun Assistinator",
+          "subtitle": "Phonetically similar word lookup",
+          "url": "http://rfong.github.io/pun",
+          "image": "/images/pun.png"
         },
         { 
           "title": "Replacerator",

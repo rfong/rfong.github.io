@@ -96,35 +96,7 @@
       <div id="main" class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
         <div class="page">
           
-
-
-<div ng-init="groupName = 'hacks'">
-  <h1>{[ group.title ]}</h1>
-  <p ng-if="group.subtitle" class="group-subtitle">{[ group.subtitle ]}</p>
-  <div class="row group-content">
-  
-    <div ng-if="!group.longform"
-         ng-repeat="item in group.items"
-         class="item col-xs-12 col-sm-4">
-      <item-title url="item.url" text="item.title"></item-title>
-      <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>
-      <div ng-if="item.image">
-        <a ng-if="item.url" href="{[ item.url ]}"><img src="{[ item.image ]}" /></a>
-        <span ng-if="!item.url"><img src="{[ item.image ]}"</span>
-      </div>
-    </div>
-  
-    <div ng-if="group.longform"
-         ng-repeat="item in group.items"
-         class="item longform col-xs-12">
-      <item-title url="item.url" text="item.title"></item-title>
-      <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>
-      <img src="{[item.image]}"/>
-    </div>
-  
-  </div>
-</div>
-
+    <div grouping group="groups.hacks"></div>
 
         </div>
       </div>

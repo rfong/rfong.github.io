@@ -4,7 +4,7 @@ cycler==0.10.0
 decorator==3.4.2
 inflect==0.2.5
 itsdangerous==0.24
-Jinja2==2.8
+Jinja2>=2.8
 MarkupSafe==0.23
 networkx==1.9.1
 pathtools==0.1.2

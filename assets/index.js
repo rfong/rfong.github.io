@@ -88,6 +88,42 @@ app.directive('photoset', function() {
   };
 });
 
+app.directive('grouping', function() {
+  return {
+    restrict: 'AE',
+    replace: true,
+    scope: {
+      group: '=',
+    },
+    template: (
+      '<div ng-init="groupName = \'{{group}}\'">' +
+      '  <h1>{{ group.title }}</h1>' +
+      '  <p ng-if="group.subtitle" class="group-subtitle">{{ group.subtitle }}</p>' +
+      '  <div class="row group-content">' +
+      '  ' +
+      '    <div ng-if="!group.longform"' +
+      '         ng-repeat="item in group.items"' +
+      '         class="item col-xs-12 col-sm-4">' +
+      '      <item-title url="item.url" text="item.title"></item-title>' +
+      '      <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>' +
+      '      <div ng-if="item.image">' +
+      '        <a ng-if="item.url" href="{{ item.url }}"><img src="{{ item.image }}" /></a>' +
+      '        <span ng-if="!item.url"><img src="{{ item.image }}"</span>' +
+      '      </div>' +
+      '    </div>' +
+      '    <div ng-if="group.longform"' +
+      '         ng-repeat="item in group.items"' +
+      '         class="item longform col-xs-12">' +
+      '      <item-title url="item.url" text="item.title"></item-title>' +
+      '      <div ng-if="item.subtitle" class="subtitle" ng-bind-html="item.subtitle | unsafe"></div>' +
+      '      <img src="{{item.image}}"/>' +
+      '    </div>' +
+      '  </div>' +
+      '</div>'
+    ),
+  };
+});
+
 
 // item-title
 app.directive('itemTitle', function() {
