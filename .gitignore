@@ -1,5 +1,9 @@
 .sass-cache
 assets/.sass-cache
+*.swo
+*.swp
+*.swm
+*.swn
 
 node_modules/
 venv/

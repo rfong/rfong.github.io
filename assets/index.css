@@ -88,6 +88,9 @@ h1 a, .title a {
   h1 a:hover, .title a:hover {
     color: #57bf43; }
 
+.emph {
+  font-weight: bold; }
+
 a.link {
   cursor: pointer; }
 

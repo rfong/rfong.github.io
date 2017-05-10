@@ -1,15 +1,17 @@
 {
     "firespinning": [
-      { "src": "/images/fire/jul1.jpg", "caption": "jul 2016"},
+      { "src": "/images/fire/aug1.jpg", "caption": "aug 2016"},
+      "images/fire/aug2.jpg",
+      "images/fire/aug3.jpg",
+      { "src": "/images/fire/jul7.jpg", "caption": "jul 2016"},
+      "images/fire/jul1.jpg",
       "images/fire/jul2.jpg",
       "images/fire/jul3.jpg",
-      "images/fire/jul4.jpg",
       "images/fire/jul5.jpg",
       "images/fire/jul6.jpg",
       { "src": "/images/fire/fd1.jpg", "caption": "jun 2016"},
       "images/fire/fd2.jpg",
       "images/fire/fd3.jpg",
-      "images/fire/fd4.jpg",
       "images/fire/fd5.jpg",
       "images/fire/fd6.jpg",
       { "src": "/images/fire/may5.jpg", "caption": "may 2016"},
@@ -31,6 +33,7 @@
       { "src": "/images/fire/steven.jpg", "caption": "dec 2015"}
     ],
     "places": [
+      { "src": "/images/places/sc_promontory.jpg", "caption": "santa cruz, california" },
       { "src": "/images/places/baja_king_cactus.jpg", "caption": "baja, mexico" },
       "/images/places/baja_totem.jpg",
       { "src": "/images/places/nevada_fork.jpg", "caption": "middle of nowhere, nevada" },
@@ -50,7 +53,7 @@
       {
         "src": "/images/art/cat_hat.jpg",
         "link": "http://rflog.tumblr.com/post/147351635811",
-        "caption": "cat pirate hat"
+        "caption": "pirate cat hat"
       },
       {
         "src": "/images/art/tinyvest.jpg",
@@ -121,7 +124,6 @@
         "link": "http://rflog.tumblr.com/post/158125919026",
         "caption": "Riri Williams, for <a href='http://mitadmissions.org/blogs/entry/not-all-heroes-wear-capes-but-some-carry-tubes-on-pi-day'>MIT Pi Day 2017</a>"
       },
-      "/images/art/reese_sharkball.jpg",
       {
         "src": "/images/art/oxtail.jpg",
         "link": "http://rflog.tumblr.com/post/137799327526",
@@ -158,7 +160,6 @@
       "/images/art/validation2015.jpg",
       "/images/art/stupidhackathon2016.png",
       "/images/art/helmet_noggin.jpg",
-      {"src": "/images/art/noah.jpg", "caption": "<a href='http://tinyletter.com/NEATmag'>Noah's newsletter</a>"},
       {"src": "/images/art/react.jpg", "caption": "<a href='http://www.zazzle.com/less_is_more_postcard-239196165809509718'>postcard</a>" },
       "/images/art/cocoamotive.jpg",
       {"src": "/images/art/postcards.jpg", "caption": "<a href='http://www.zazzle.com/miss_compiling_postcard-239884981449558687'>docker postcard</a> / <a href='http://www.zazzle.com/hate_compiling_postcard-239142311664882952'>assembly postcard</a>" }
