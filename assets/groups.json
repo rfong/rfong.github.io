@@ -3,34 +3,10 @@
       "title": "afternoon hacks",
       "items": [
         {
-          "title": "Fan Spinning Exercises",
-          "subtitle": "Randomly generated transition exercises for techy fan spinners.",
-          "url": "https://rfong.github.io/fan-dice/",
-          "image": "/images/fan_dice.png"
-        },
-        {
           "title": "2D Poi Simulator",
           "subtitle": "Simple HTML canvas 2d poi simulator. A visual aid to help you understand the relationship between hands, phases, and poi patterns.",
           "url": "https://rfong.github.io/poi/",
           "image": "/images/poi_sim.png"
-        },
-        {
-          "title": "Meta Markov Mashup",
-          "subtitle": "Upload text dumps, get out Markov-chain mashups.",
-          "url": "http://metamarkovmashup.herokuapp.com",
-          "image": "/images/metamarkovmashup.png"
-        },
-        {
-          "title": "Strummutations",
-          "subtitle": "Randomly generated 4/4 strum patterns to use while I learn guitar.",
-          "url": "https://rfong.github.io/strummutations/",
-          "image": "/images/strummutations.png"
-        },
-        { 
-          "title": "Pun Assistinator",
-          "subtitle": "Phonetically similar word lookup",
-          "url": "http://rfong.github.io/pun",
-          "image": "/images/pun.png"
         },
         { 
           "title": "Replacerator",
@@ -39,28 +15,16 @@
           "image": "/images/replacerator.png"
         },
         {
-          "title": "Plant Toxicity Lookup",
-          "subtitle": "Super simple houseplant toxicity lookup for pets, based on ASPCA data",
-          "url": "https://rfong.github.io/plant-toxicity/",
-          "image": "/images/plant-toxicity.png"
-        },
-        {
-          "title": "resonant-hues",
-          "subtitle": "Fast website palette tester generated from minimal json",
-          "url": "http://rfong.github.io/resonanthues/",
-          "image": "/images/resonanthues.png"
+          "title": "Meta Markov Mashup",
+          "subtitle": "Upload text dumps, get out Markov-chain mashups. Made at Stupid Hackathon 2016.",
+          "url": "http://metamarkovmashup.herokuapp.com",
+          "image": "/images/metamarkovmashup.png"
         },
         {
           "title": "Madlib Maker",
           "subtitle": "Simple, storeable, shareable madlibs",
           "url": "http://madlib.herokuapp.com/",
           "image": "/images/madlib.png"
-        },
-        {
-          "title": "Sexy Voice Soundboard",
-          "subtitle": "The world's finest voices in one convenient soundboard",
-          "url": "http://www.sexyvoicesoundboard.com/",
-          "image": "/images/svs.png"
         },
         {
           "title": "Why We Love You",
@@ -78,6 +42,53 @@
           "title": "Snailman",
           "subtitle": "Chrome extension to centralize package tracking",
           "url": "https://chrome.google.com/webstore/detail/snailman/gnncgbnoacieamgkmommabmpchlfidca"
+        }
+      ]
+    },
+
+    "refs": {
+      "title": "quickrefs",
+      "items": [
+        {
+          "title": "Fan Spinning Exercises",
+          "subtitle": "Randomly generates transition exercises for techy fan spinners",
+          "url": "https://rfong.github.io/fan-dice/",
+          "image": "/images/fan_dice.png"
+        },
+        {
+          "title": "Strummutations",
+          "subtitle": "Randomly generates 4/4 strum patterns to use for my guitar-learning convenience",
+          "url": "https://rfong.github.io/strummutations/",
+          "image": "/images/strummutations.png"
+        },
+        {
+          "title": "Deducifier",
+          "subtitle": "Chrome extension to put the deduction back in Sherlock slashfic. Made at Stupid Hackathon 2017, inspired by <a href='http://www.qwantz.com/index.php?comic=2914'>this Dinosaur Comic</a>",
+          "url": "https://chrome.google.com/webstore/detail/deducifier/nfpkomjhafpdnambdmhhnbldpehgmdmm"
+        },
+        { 
+          "title": "Pun Assistinator",
+          "subtitle": "Phonetically similar word lookup",
+          "url": "http://rfong.github.io/pun",
+          "image": "/images/pun.png"
+        },
+        {
+          "title": "Plant Toxicity Lookup",
+          "subtitle": "Super simple houseplant toxicity lookup for pets, based on ASPCA data",
+          "url": "https://rfong.github.io/plant-toxicity/",
+          "image": "/images/plant-toxicity.png"
+        },
+        {
+          "title": "resonant-hues",
+          "subtitle": "Fast website palette tester generated from minimal json",
+          "url": "http://rfong.github.io/resonanthues/",
+          "image": "/images/resonanthues.png"
+        },
+        {
+          "title": "Sexy Voice Soundboard",
+          "subtitle": "The world's finest voices in one convenient soundboard",
+          "url": "http://www.sexyvoicesoundboard.com/",
+          "image": "/images/svs.png"
         }
       ]
     },
