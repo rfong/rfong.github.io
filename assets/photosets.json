@@ -130,7 +130,7 @@
       {
         "src": "/images/art/oxtail.jpg",
         "link": "http://rflog.tumblr.com/post/137799327526",
-        "caption": "oxtail (<a href='http://www.redbubble.com/people/skollipsism/works/21955984-oxtail?p=sticker'>sticker</a>)"
+        "caption": "oxtail (<a href='http://www.redbubble.com/people/skollipsism/works/21955984-oxtail?p=sticker'>shop</a>)"
       },
       {
         "src": "/images/art/baku.jpg",
@@ -154,18 +154,19 @@
       }
     ],
     "branding": [
-      {"src": "/images/art/invitationsbook.jpg", "caption": "<a href='http://www.lulu.com/shop/rachel-fong/curious-whimsical-invitations-for-all-occasions/paperback/product-22982752.html'>curious & whimsical invitations</a>"},
-      {"src": "/images/art/bike_topology.png", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22313982-bike-lock-mishap-prevention'>sticker</a>"},
-      {"src": "/images/art/sphere_packings.jpg", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22877742-sphere-packings'>sticker</a>"},
+      {"src": "/images/art/lettering_is_drawing.jpg", "caption": "<a href='https://www.redbubble.com/people/skollipsism/works/26929284-lettering-is-just-drawing-for-words?asc=u&ref=recent-owner'>shop</a>"},
+      {"src": "/images/art/invitationsbook.jpg", "caption": "curious & whimsical invitations (<a href='http://www.lulu.com/shop/rachel-fong/curious-whimsical-invitations-for-all-occasions/paperback/product-22982752.html'>shop</a>)"},
+      {"src": "/images/art/bike_topology.png", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22313982-bike-lock-mishap-prevention'>shop</a>"},
+      {"src": "/images/art/sphere_packings.jpg", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22877742-sphere-packings'>shop</a>"},
       "/images/art/systemsbathroom.jpg",
       "/images/art/artparty_junk_sign.jpg",
       "/images/art/validation2016.jpg",
       "/images/art/validation2015.jpg",
       "/images/art/stupidhackathon2016.png",
       "/images/art/helmet_noggin.jpg",
-      {"src": "/images/art/react.jpg", "caption": "<a href='http://www.zazzle.com/less_is_more_postcard-239196165809509718'>postcard</a>" },
+      {"src": "/images/art/react.jpg", "caption": "<a href='http://www.zazzle.com/less_is_more_postcard-239196165809509718'>shop</a>" },
       "/images/art/cocoamotive.jpg",
-      {"src": "/images/art/postcards.jpg", "caption": "<a href='http://www.zazzle.com/miss_compiling_postcard-239884981449558687'>docker postcard</a> / <a href='http://www.zazzle.com/hate_compiling_postcard-239142311664882952'>assembly postcard</a>" }
+      {"src": "/images/art/postcards.jpg", "caption": "<a href='http://www.zazzle.com/miss_compiling_postcard-239884981449558687'>shop docker</a> / <a href='http://www.zazzle.com/hate_compiling_postcard-239142311664882952'>shop assembly</a>" }
     ],
     "reese": [
       "/images/reese/meow_bao.jpg",
