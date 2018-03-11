@@ -90,6 +90,16 @@
       }
     ],
     "curios": [
+			{
+				"src": "/images/art/tiny_notebooks.jpg",
+				"link": "http://rflog.tumblr.com/post/165290123386",
+				"caption": "tiny notebooks for off-grid gifting"
+			},
+			{
+				"src": "/images/art/router_table.jpg",
+				"link": "http://rflog.tumblr.com/post/162104807371",
+				"caption": "simple flat-packing lasercut router table"
+			},
       {
         "src": "/images/art/puzzlebox.jpg",
         "link": "http://rflog.tumblr.com/post/85962876591",
@@ -154,20 +164,20 @@
       }
     ],
     "branding": [
-      {"src": "/images/art/nature_calling.jpg", "caption": "a lettering about pooping in nature. <a href='https://www.redbubble.com/people/skollipsism/works/27441904-nature-is-calling-and-i-must-go-poo'>shop</a>"},
-      {"src": "/images/art/lettering_is_drawing.jpg", "caption": "<a href='https://www.redbubble.com/people/skollipsism/works/26929284-lettering-is-just-drawing-for-words?asc=u&ref=recent-owner'>shop</a>"},
-      {"src": "/images/art/invitationsbook.jpg", "caption": "curious & whimsical invitations (<a href='http://www.lulu.com/shop/rachel-fong/curious-whimsical-invitations-for-all-occasions/paperback/product-22982752.html'>shop</a>)"},
-      {"src": "/images/art/bike_topology.png", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22313982-bike-lock-mishap-prevention'>shop</a>"},
-      {"src": "/images/art/sphere_packings.jpg", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22877742-sphere-packings'>shop</a>"},
+			{"src": "/images/art/avotado_coast.jpg", "caption": "<a href='https://www.redbubble.com/people/skollipsism/works/30762492-avotado-coast?asc=u&p=sticker'>print shop</a> | <a href='http://rflog.tumblr.com/post/171770112176'>process post</a>"},
+      {"src": "/images/art/lettering_is_drawing.jpg", "caption": "<a href='https://www.redbubble.com/people/skollipsism/works/26929284-lettering-is-just-drawing-for-words?asc=u&ref=recent-owner'>print shop</a>"},
+      {"src": "/images/art/invitationsbook.jpg", "caption": "self-published epistolary. (<a href='http://www.lulu.com/shop/rachel-fong/curious-whimsical-invitations-for-all-occasions/paperback/product-22982752.html'>print shop</a>)"},
+      {"src": "/images/art/bike_topology.png", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22313982-bike-lock-mishap-prevention'>print shop</a>"},
+      {"src": "/images/art/sphere_packings.jpg", "caption": "<a href='http://www.redbubble.com/people/skollipsism/works/22877742-sphere-packings'>print shop</a>"},
       "/images/art/systemsbathroom.jpg",
       "/images/art/artparty_junk_sign.jpg",
       "/images/art/validation2016.jpg",
       "/images/art/validation2015.jpg",
       "/images/art/stupidhackathon2016.png",
       "/images/art/helmet_noggin.jpg",
-      {"src": "/images/art/react.jpg", "caption": "<a href='http://www.zazzle.com/less_is_more_postcard-239196165809509718'>shop</a>" },
+      {"src": "/images/art/react.jpg", "caption": "<a href='http://www.zazzle.com/less_is_more_postcard-239196165809509718'>print shop</a>" },
       "/images/art/cocoamotive.jpg",
-      {"src": "/images/art/postcards.jpg", "caption": "<a href='http://www.zazzle.com/miss_compiling_postcard-239884981449558687'>shop docker</a> / <a href='http://www.zazzle.com/hate_compiling_postcard-239142311664882952'>shop assembly</a>" }
+      {"src": "/images/art/postcards.jpg", "caption": "print shop: <a href='http://www.zazzle.com/miss_compiling_postcard-239884981449558687'>docker</a> / <a href='http://www.zazzle.com/hate_compiling_postcard-239142311664882952'>assembly</a>" }
     ],
     "reese": [
       "/images/reese/meow_bao.jpg",
