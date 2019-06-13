@@ -188,15 +188,21 @@ body > .row {
   border-radius: 0; }
 
 .splash .splash-image {
-  height: 90vh; }
+  width: 75px;
+  height: 75px; }
 .splash .splash-text {
   vertical-align: top;
   display: inline-block;
-  margin-left: 1em;
+  margin-left: 0.5em;
+  font-family: "Courier New", Courier, monospace; }
+.splash h1, .splash h2, .splash h3, .splash h4, .splash h5, .splash h6 {
   font-family: "Courier New", Courier, monospace; }
 
 .note {
   font-family: "Courier New", Courier, monospace;
-  font-size: 10pt; }
+  font-size: 11pt; }
+
+.mono {
+  font-family: "Courier New", Courier, monospace; }
 
 /*# sourceMappingURL=index.css.map */
