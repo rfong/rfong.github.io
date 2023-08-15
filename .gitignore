@@ -8,5 +8,5 @@ assets/.sass-cache
 node_modules/
 venv/
 
-.DS_STORE
-images/.DS_STORE
+.DS_Store
+images/.DS_Store
